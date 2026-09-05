@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Redirects from old WordPress URLs to new static site pages
+RewriteRule ^concept/?$ /concept.html [R=301,L]
+RewriteRule ^about/?$ /concept.html [R=301,L]
+RewriteRule ^access/?$ /access.html [R=301,L]
+RewriteRule ^contact/?$ /contact.html [R=301,L]
+RewriteRule ^blog/?$ /blog.html [R=301,L]
+RewriteRule ^menu/パーソナルトレーニング/?$ /service.html [R=301,L]
+RewriteRule ^menu/体験セッション/?$ /trial.html [R=301,L]
