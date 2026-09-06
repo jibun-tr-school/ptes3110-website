@@ -51,15 +51,15 @@
       </section>
 
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;">
-        <button onClick="{{ () => setCategory(null) }}" style="{{ allChipStyle }}">すべて</button>
+        <button data-cat="__all__" style="{{ allChipStyle }}">すべて</button>
         <sc-for list="{{ categoryChips }}" as="cat" hint-placeholder-count="4">
-          <button onClick="{{ () => setCategory(cat.name) }}" style="{{ cat.chipStyle }}">{{ cat.name }}</button>
+          <button data-cat="{{ cat.name }}" style="{{ cat.chipStyle }}">{{ cat.name }}</button>
         </sc-for>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;">
         <sc-for list="{{ filteredArticles }}" as="article" hint-placeholder-count="6">
-          <article style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;" onClick="{{ () => openArticle(article.id) }}">
+          <article data-article-id="{{ article.id }}" style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;">
             <div style="{{ article.thumbStyle }}">
               <sc-if value="{{ article.hasImage }}" hint-placeholder-val="{{ true }}"><img src="{{ article.image }}" alt="{{ article.imageLabel }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.visibility='hidden'"></sc-if>
               <sc-if value="{{ article.noImage }}" hint-placeholder-val="{{ false }}"><span style="position:relative;font-family:monospace;font-size:11px;color:oklch(50% 0.02 60);background:oklch(99% 0 0 / 0.7);padding:3px 8px;border-radius:4px;">no image</span></sc-if>
@@ -87,7 +87,7 @@
   <sc-if value="{{ isDetailView }}" hint-placeholder-val="{{ false }}">
     <main style="max-width:760px;margin:0 auto;padding:12px 24px 80px;">
       <div style="font-size:12px;color:oklch(50% 0.01 60);margin-bottom:20px;">
-        <a onClick="{{ goList }}" style="color:{{ accentColor }};text-decoration:none;cursor:pointer;">BLOG</a>
+        <a data-goback="1" style="color:{{ accentColor }};text-decoration:none;cursor:pointer;">BLOG</a>
         <span> / </span>
         <span>{{ selectedArticle.category }}</span>
       </div>
@@ -142,7 +142,7 @@
           <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;">関連記事</h3>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;">
             <sc-for list="{{ relatedArticles }}" as="article" hint-placeholder-count="2">
-              <article style="cursor:pointer;" onClick="{{ () => openArticle(article.id) }}">
+              <article data-article-id="{{ article.id }}" style="cursor:pointer;">
                 <div style="{{ article.thumbStyle }};height:110px;">
                   <sc-if value="{{ article.hasImage }}" hint-placeholder-val="{{ true }}"><img src="{{ article.image }}" alt="{{ article.imageLabel }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.visibility='hidden'"></sc-if>
                 </div>
@@ -178,6 +178,20 @@ class Component extends DCLogic {
   componentDidMount() {
     import('./articles-data.js').then(m => this.setState({ articles: m.articles }));
     this.updateSEO('ブログ｜Personal Training E.S', '続けるヒント、見つかります。三日坊主さん専門パーソナルジムE.Sのトレーナーが、続けるコツ・ダイエット・トレーニングの考え方を発信するブログです。');
+    // NOTE: the exported static-page runtime does not bind onClick="{{ () => ... }}" template
+    // expressions to real DOM handlers (function values are dropped during render), so click
+    // interactivity is wired manually here via delegated listeners + static data-* attributes.
+    if (!this.__clickBound) {
+      this.__clickBound = true;
+      document.addEventListener('click', (e) => {
+        const catBtn = e.target.closest('[data-cat]');
+        if (catBtn) { const cat = catBtn.getAttribute('data-cat'); this.setCategory(cat === '__all__' ? null : cat); return; }
+        const art = e.target.closest('[data-article-id]');
+        if (art) { this.openArticle(art.getAttribute('data-article-id')); window.scrollTo(0, 0); return; }
+        const back = e.target.closest('[data-goback]');
+        if (back) { this.goList(); window.scrollTo(0, 0); return; }
+      });
+    }
   }
 
   updateSEO(title, description) {
