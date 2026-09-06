@@ -5,6 +5,8 @@
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#5aa59c"/><text x="60" y="68" font-size="40" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="900">ES</text></svg></template>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ブログ｜Personal Training E.S</title>
+<meta name="description" content="続けるヒント、見つかります。三日坊主さん専門パーソナルジムE.Sのトレーナーが、続けるコツ・ダイエット・トレーニングの考え方を発信するブログです。">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -171,6 +173,18 @@ class Component extends DCLogic {
 
   componentDidMount() {
     import('./articles-data.js').then(m => this.setState({ articles: m.articles }));
+    this.updateSEO('ブログ｜Personal Training E.S', '続けるヒント、見つかります。三日坊主さん専門パーソナルジムE.Sのトレーナーが、続けるコツ・ダイエット・トレーニングの考え方を発信するブログです。');
+  }
+
+  updateSEO(title, description) {
+    document.title = title;
+    let tag = document.querySelector('meta[name="description"]');
+    if (!tag) {
+      tag = document.createElement('meta');
+      tag.setAttribute('name', 'description');
+      document.head.appendChild(tag);
+    }
+    tag.setAttribute('content', description);
   }
 
 
@@ -385,8 +399,17 @@ class Component extends DCLogic {
   }
 
   setCategory = (cat) => this.setState({ category: cat });
-  openArticle = (id) => this.setState({ view: 'detail', articleId: id });
-  goList = () => this.setState({ view: 'list' });
+  openArticle = (id) => {
+    this.setState({ view: 'detail', articleId: id });
+    const a = (this.state.articles || []).find(x => x.id === id);
+    if (a) {
+      this.updateSEO(a.title + '｜Personal Training E.S', a.excerpt || '');
+    }
+  };
+  goList = () => {
+    this.setState({ view: 'list' });
+    this.updateSEO('ブログ｜Personal Training E.S', '続けるヒント、見つかります。三日坊主さん専門パーソナルジムE.Sのトレーナーが、続けるコツ・ダイエット・トレーニングの考え方を発信するブログです。');
+  };
 
   renderVals() {
     const accentColor = this.props.accentColor ?? '#5aa59c';
