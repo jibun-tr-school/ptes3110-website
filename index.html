@@ -150,7 +150,7 @@
     <hr style="border:none;border-top:1px solid oklch(88% 0.01 60);margin:24px 0 40px;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
       <sc-for list="{{ latestArticles }}" as="article" hint-placeholder-count="3">
-        <a href="blog.html" style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;display:block;">
+        <a href="blog/{{ article.id }}.html" style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;display:block;">
           <div style="position:relative;width:100%;aspect-ratio:4/3;background:repeating-linear-gradient(45deg, oklch(90% 0.01 60), oklch(90% 0.01 60) 10px, oklch(93% 0.01 60) 10px, oklch(93% 0.01 60) 20px);">
             <sc-if value="{{ article.hasImage }}" hint-placeholder-val="{{ true }}"><img src="{{ article.image }}" alt="ブログ記事画像" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.visibility='hidden'"></sc-if>
             <sc-if value="{{ article.noImage }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:11px;color:oklch(55% 0.01 60);">no image</span></sc-if>
