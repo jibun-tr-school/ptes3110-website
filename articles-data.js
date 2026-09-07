@@ -120,8 +120,8 @@ export const articles = [
   },
   {
     id: 'training-consistency-over-intensity', category: 'ジム紹介', date: '2026.08.08',
-    title: '継続が苦手な方のためのパーソナルジムって他のジムと何が違うの？',
-    excerpt: '「継続が苦手な方のためのパーソナルジム」って普通のパーソナルジムと何が違うの？E.Sのプログラムの考え方を対話形式で解説します。…',
+    title: '三日坊主さん専門パーソナルジムって他のジムと何が違うの？',
+    excerpt: '「三日坊主さん専門パーソナルジム」って普通のパーソナルジムと何が違うの？E.Sのプログラムの考え方を対話形式で解説します。…',
     image: 'images/blog/training-consistency-over-intensity.jpg',
     body: [
       { isP: true, text: '一般的なパーソナルジムでは、最短で身体の変化を出すために毎回限界まで追い込むことが多いですが、E.Sではまず、運動習慣を作ることを優先します。' },
