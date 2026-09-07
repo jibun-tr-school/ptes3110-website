@@ -67,7 +67,7 @@ export const articles = [
     id: 'diet-slow-pace', category: 'ダイエット', date: '2026.07.02',
     title: 'ダイエットは「ゆっくり」が正解。月500gでも1年で6kgの変化に。',
     excerpt: '「頑張っているのに、なかなか体重が減らない」…そんな風に落ち込んでしまう方は少なくありません。',
-    image: null,
+    image: 'images/blog/diet-slow-pace.jpg',
     body: [
       { isP: true, text: '「頑張っているのに、なかなか体重が減らない」そんな風に落ち込んでしまう方は少なくありません。' },
       { isP: true, text: 'でも、私はお客様によくこうお伝えしています。「一気にじゃなくても月に500gでも痩せられたら、1年で6kgになりますよ」と。' },
@@ -122,7 +122,7 @@ export const articles = [
     id: 'training-consistency-over-intensity', category: 'ジム紹介', date: '2026.08.08',
     title: '継続が苦手な方のためのパーソナルジムって他のジムと何が違うの？',
     excerpt: '「継続が苦手な方のためのパーソナルジム」って普通のパーソナルジムと何が違うの？E.Sのプログラムの考え方を対話形式で解説します。…',
-    image: null,
+    image: 'images/blog/training-consistency-over-intensity.jpg',
     body: [
       { isP: true, text: '一般的なパーソナルジムでは、最短で身体の変化を出すために毎回限界まで追い込むことが多いですが、E.Sではまず、運動習慣を作ることを優先します。' },
       { isH2: true, text: 'なぜ、トレーニングは「毎回負荷を上げる」のか？' },
@@ -137,7 +137,7 @@ export const articles = [
     id: 'dont-make-it-zero', category: '習慣', date: '2026.08.16',
     title: 'まだ「毎日ジムに行こう」としてますか？運動は「〇〇にしない」ことが大切',
     excerpt: '「毎日筋トレしようと決めたのに、もう3日もサボっちゃった」…多くの人が挫折してしまう理由と、続けるための考え方を対話形式で解説します。…',
-    image: null,
+    image: 'images/blog/dont-make-it-zero.jpg',
     body: [
       { isH2: true, text: 'なぜ、トレーニングが「続かない」のか？' },
       { isP: true, text: '多くの人が筋トレに挫折してしまう最大の理由は、 「成果を早く出そうとして、極端な計画を立てる」ことにあります。真面目な人ほど、無意識に高いハードルを設定してしまいます。' },
@@ -151,7 +151,7 @@ export const articles = [
     id: 'muscle-not-working', category: 'トレーニング', date: '2026.08.23',
     title: '効いてる感じがしないのは、器具の使い方？フォーム？負荷が足りない？原因はそこじゃないかも...',
     excerpt: '腕立てをしても胸に効いてる気がしない…その原因は、フォームではなく「脳の仕組み」にあるかもしれません。',
-    image: null,
+    image: 'images/blog/muscle-not-working.jpg',
     body: [
       { isP: true, text: '「胸のトレーニングをしているのに、腕ばかり疲れて胸に効いている気がしない」という悩みは、実は『人間として正常』な証拠です。' },
       { isH2: true, text: '腕ばかりが先に疲れる理由' },
@@ -165,7 +165,7 @@ export const articles = [
     id: 'online-personal-environment', category: 'トレーニング', date: '2026.08.29',
     title: 'パーソナルトレーニングはオンラインでも大丈夫？',
     excerpt: 'オンラインパーソナルだけで12kg痩せた方も。場所よりも大切な「見られているかどうか」について対話形式で解説します。',
-    image: null,
+    image: 'images/blog/online-personal-environment.jpg',
     body: [
       { isP: true, text: 'オンラインパーソナルの利用者には、家の近くにジムがない方や、海外に住んでいるけど日本人のトレーナーを希望する方などいろんな方がいます。オンラインだけで12kg痩せた方もいます。' },
       { isH2: true, text: 'オンラインで12kg痩せた方の取り組み' },
@@ -178,7 +178,7 @@ export const articles = [
     id: 'alcohol-diet-tips', category: 'ダイエット', date: '2026.09.02',
     title: 'ダイエット中の飲み会は断るべき？お酒や外食との「太らない」付き合い方',
     excerpt: '「ダイエット中だし飲み会は断ったほうがいいよね？」そんな悩みに、太らないための3つの工夫を対話形式で解説します。',
-    image: null,
+    image: 'images/blog/alcohol-diet-tips.jpg',
     body: [
       { isH2: true, text: 'ダイエット中でも飲み会を断らなくていい理由' },
       { isP: true, text: 'ダイエット中だからといって、友人との食事や会社の飲み会をすべて断る必要はありません。「一生、外食もお酒も我慢する生活」なんて、絶対に続かないからです。' },
@@ -192,7 +192,7 @@ export const articles = [
     id: "training-doms-myth", category: "トレーニング", date: "2026.09.06",
     title: "「筋肉痛が出ないと意味がない」は誤解？筋肉が育つ本当のメカニズム",
     excerpt: "「今回は筋肉痛が全然なかった…」そう落ち込む会員様は少なくありません。でも実は、筋肉痛の有無と筋肉の成長は、思っているほど関係がないことが研究で分かっています。",
-    image: null,
+    image: 'images/blog/training-doms-myth.jpg',
     body: [
       { isH2: true, text: "「筋肉痛にならないと効果がない」は本当？" },
       { isP: true, text: "トレーニング後に「今日は筋肉痛が全然ないんですけど、ちゃんと効いてますか？」と聞かれることがよくあります。多くの方が「筋肉痛=トレーニングの成果」だと考えがちですが、実はこの2つの関係は、皆さんが思っているほど単純ではありません。" },
