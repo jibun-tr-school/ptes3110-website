@@ -30,25 +30,57 @@
   * { box-sizing: border-box; }
   a { transition: opacity 0.15s; }
   a:hover { opacity: 0.65; }
+  .site-header { position: sticky; top: 0; z-index: 200; background: oklch(98% 0.01 60); border-bottom: 1px solid oklch(92% 0.01 60); }
+  .site-header-inner { display:flex; align-items:center; justify-content:space-between; max-width:1140px; margin:0 auto; padding:16px 24px; gap:24px; }
+  .site-nav-desktop { display:flex; align-items:center; gap:20px; font-size:13px; flex-wrap:wrap; }
+  .site-nav-cta { background:#5aa59c; color:#fff; text-decoration:none; font-weight:700; padding:8px 18px; border-radius:20px; display:inline-block; }
+  .site-nav-cta:hover { opacity:0.85; }
+  .menu-toggle-btn { display:none; border:none; background:transparent; cursor:pointer; padding:6px; }
+  .mobile-nav-panel { display:none; }
+  @media (max-width: 760px) {
+    .site-header-inner { padding:14px 20px; }
+    .site-nav-desktop { display:none; }
+    .menu-toggle-btn { display:flex; align-items:center; justify-content:center; }
+    .mobile-nav-panel { position:fixed; inset:0; background:oklch(98% 0.01 60); z-index:300; flex-direction:column; padding:88px 32px 32px; gap:4px; transform:translateX(100%); transition:transform 0.25s ease; overflow-y:auto; }
+    .mobile-nav-panel.is-open { display:flex; transform:translateX(0); }
+    .mobile-nav-panel a:not(.site-nav-cta) { padding:16px 4px; font-size:16px; border-bottom:1px solid oklch(92% 0.01 60); text-decoration:none; }
+    .mobile-nav-close { position:absolute; top:24px; right:24px; width:36px; height:36px; border:none; background:transparent; font-size:28px; line-height:1; cursor:pointer; color:oklch(30% 0.01 60); }
+  }
 </style>
 </helmet>
 <div data-screen-label="TRIAL-INFO" style="font-family:'Noto Sans JP',sans-serif;color:oklch(22% 0.01 60);background:oklch(98% 0.01 60);min-height:100vh;">
-  <header style="display:flex;align-items:center;justify-content:space-between;max-width:1140px;margin:0 auto;padding:22px 24px;gap:24px;flex-wrap:wrap;">
-    <a href="index.html" style="text-decoration:none;color:oklch(22% 0.01 60);display:flex;flex-direction:column;">
-      <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.02em;">Personal Training E.S</span>
-      <span style="font-size:11px;color:oklch(45% 0.01 60);letter-spacing:0.05em;">三日坊主さん専門パーソナルジム</span>
-    </a>
-    <nav style="display:flex;gap:20px;font-size:13px;flex-wrap:wrap;">
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" style="text-decoration:none;color:oklch(22% 0.01 60);display:flex;flex-direction:column;">
+        <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.02em;">Personal Training E.S</span>
+        <span style="font-size:11px;color:oklch(45% 0.01 60);letter-spacing:0.05em;">三日坊主さん専門パーソナルジム</span>
+      </a>
+      <nav class="site-nav-desktop">
       <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
       <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
       <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
       <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
       <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&A</a>
+      <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
       <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-      <a href="trial.html" style="color:#5aa59c;text-decoration:none;font-weight:700;">TRIAL</a>
-    </nav>
+      <a href="trial.html" class="site-nav-cta">TRIAL</a>
+      </nav>
+      <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(22% 0.01 60)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
   </header>
+  <div class="mobile-nav-panel" id="mobile-nav-panel">
+    <button type="button" class="mobile-nav-close" data-menu-close aria-label="閉じる">&times;</button>
+    <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
+    <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
+    <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
+    <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
+    <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
+    <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
+    <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
+    <a href="trial.html" class="site-nav-cta" style="text-align:center;margin-top:8px;">TRIAL</a>
+  </div>
 
   <div style="max-width:700px;margin:20px auto 0;padding:0 24px;font-size:12px;color:oklch(50% 0.01 60);">
     <a href="index.html" style="color:oklch(50% 0.01 60);text-decoration:none;">Home</a> &gt;
@@ -122,5 +154,16 @@
   </footer>
 </div>
 </x-dc>
+<script>
+(function(){
+  var panel = document.getElementById('mobile-nav-panel');
+  if (!panel) return;
+  document.addEventListener('click', function(e){
+    if (e.target.closest('[data-menu-toggle]')) { panel.classList.add('is-open'); return; }
+    if (e.target.closest('[data-menu-close]')) { panel.classList.remove('is-open'); return; }
+    if (panel.classList.contains('is-open') && e.target.closest('.mobile-nav-panel a')) { panel.classList.remove('is-open'); }
+  });
+})();
+</script>
 </body>
 </html>
