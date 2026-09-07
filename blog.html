@@ -180,7 +180,7 @@ class Component extends DCLogic {
   renderVals() {
     const accentColor = this.props.accentColor ?? '#5aa59c';
 
-    const raw = this.state.articles || [];
+    const raw = [...(this.state.articles || [])].sort((a, b) => (a.date < b.date ? 1 : -1));
     const articles = raw.map((a, i) => {
       const c = this.categoryStyle(a.category);
       return { ...a, tagBg: c.tagBg, tagText: c.tagText, hasImage: !!a.image, noImage: !a.image, thumbStyle: this.thumbStyle(i), imageLabel: 'photo: ' + a.title.slice(0, 16) };
