@@ -269,9 +269,12 @@ class Component extends DCLogic {
 </script>
 <script>
 (function(){
-  var panel = document.getElementById('mobile-nav-panel');
-  if (!panel) return;
+  // NOTE: do not cache the panel element -- this site's templating engine
+  // (support.js) rebuilds the DOM after initial parse, which would detach
+  // a reference grabbed too early. Always look it up fresh per click.
   document.addEventListener('click', function(e){
+    var panel = document.getElementById('mobile-nav-panel');
+    if (!panel) return;
     if (e.target.closest('[data-menu-toggle]')) { panel.classList.add('is-open'); return; }
     if (e.target.closest('[data-menu-close]')) { panel.classList.remove('is-open'); return; }
     if (panel.classList.contains('is-open') && e.target.closest('.mobile-nav-panel a')) { panel.classList.remove('is-open'); }
