@@ -212,4 +212,31 @@ export const articles = [
       { isList: true, items: ["Morton RW, et al. (2018) \"A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults.\" British Journal of Sports Medicine, 52(6), 376-384.", "Schoenfeld BJ, Contreras B. \"Is Postexercise Muscle Soreness a Valid Indicator of Muscle Damage and Muscle Hypertrophy?\" Strength and Conditioning Journal.", "2011年 Journal of Experimental Biology 掲載研究(訓練経験者・未経験者間での筋肉痛と筋肥大の比較試験)"] }
     ],
   },
+  {
+    id: 'decide-in-advance', category: '習慣', date: '2026.09.14',
+    title: '「今日は何しよう」が挫折のもと？トレーニングの時間とメニューを先に決めておくと続けやすくなる理由',
+    excerpt: '「今日のトレーニング、何しよう」——そのちょっとした迷いが、実は挫折の入り口かもしれません。「時間とメニューを先に決めておく」というシンプルな工夫が、なぜ運動を続けやすくするのか、行動科学の研究から確認してみました。',
+    image: 'images/blog/decide-in-advance.jpg',
+    body: [
+      { isH2: true, text: '「今日は何しよう」がトレーニングをやめさせる' },
+      { isP: true, text: '会員様と話していると、「忙しくてサボった」よりも実は多いのが、「今日は何をすればいいか決めていなくて、なんとなく後回しにしてしまった」という声です。トレーニングが続かない一番のハードルは、内容や強度ではなく「始める前の小さな迷い」にあることが少なくありません。' },
+      { isH2: true, text: 'E.Sがおすすめしている、ちょっとした工夫' },
+      { isP: true, text: 'E.Sでも会員様には、「〇曜日の〇時から、このメニューをやる」と、あらかじめ固定しておくことをおすすめしています。当日になって「今日は何しよう」「何時にしよう」と考える回数そのものを減らしておくのが狙いです。' },
+      { isH2: true, text: '「決断すると意志力が減る」説、実は近年見直されています' },
+      { isP: true, text: '「決断を重ねると脳が疲れて、やる気が続かなくなる」——いわゆる"決定疲れ"や"意志力の枯渇(エゴ・デプリーション)"という考え方を耳にしたことがある方も多いと思います。ただ、これは近年の心理学研究で大きく見直されている分野です。2016年に23の研究室が参加して行われた大規模な追試研究(Hagger, Chatzisarantis, et al., 2016)では、参加者2,141人を対象に検証した結果、この"意志力が減る"効果は統計的にはほぼ確認されませんでした(効果量d=0.04、ゼロとほとんど変わらない水準)。なので、「決断のたびに、意志力という燃料タンクが目に見えて減っていく」という単純な図式は、今の科学のままでは信じすぎない方が良さそうです。' },
+      { isH2: true, text: 'では、なぜ「先に決めておく」と続けやすくなるのか' },
+      { isP: true, text: '「先に決めておく」ことに意味がないかというと、そうではありません。心理学には「実行意図(if-thenプランニング)」と呼ばれる、よく研究されている手法があります。「Xという状況になったら、Yをする」と、事前に具体的な行動を決めておくことで、実際に行動に移しやすくなるというものです。' },
+      { isP: true, text: 'ドイツの心理学者ゴルヴィツァーとシーランが2006年に発表したメタ分析では、94件・8,000人以上のデータを統合した結果、この実行意図を使った人は、ただ「頑張ろう」と思っただけの人に比べて、目標達成度が中〜大程度(効果量d=0.65)向上していました。' },
+      { isP: true, text: '運動に絞った研究でも、ベランジェ=グラベルらが2013年に発表した26件のメタ分析があります。それによると、「いつ・どこで・何を」と事前に決めておいた人は、そうでない人に比べて身体活動量が小〜中程度(標準化平均差d=0.31、介入直後の時点)増えていました。効果はやや小さくなるものの、その後の追跡調査でもd=0.24の差が確認されています。' },
+      { isH2: true, text: '「気合い」より「決める回数を減らす」ことが効く' },
+      { isP: true, text: 'これらの研究から言えるのは、「本番でどれだけ気合いを入れるか」よりも、「本番までにどれだけ決めることを済ませておくか」の方が、行動を後押しする力が強いということです。やる気に頼らない仕組みを、先に作っておくことがポイントです。' },
+      { isH2: true, text: '今日からできること' },
+      { isP: true, text: '完璧なスケジュール表を作る必要はありません。まずは「来週、いつ・何のトレーニングをするか」を1つだけ先に決めてみてください。' },
+      { isList: true, items: ['曜日と時間を先に決める(例:火曜19時〜)', 'その日にやる種目やメニューをざっくりでも決めておく', '当日は「決めた通りにやる」を優先し、その場での判断を減らす'] },
+      { isH2: true, text: 'まとめ' },
+      { isP: true, text: '「今日は何しよう」と考える回数を減らすことが、続けるための一番の近道かもしれません。気合いや意志の強さに頼るのではなく、"先に決めておく"という仕組みを味方につけて、トレーニングを続けやすい環境を作っていきましょう。' },
+      { isH2: true, text: '出典・参考文献' },
+      { isList: true, items: ["Gollwitzer, P. M., & Sheeran, P. (2006). Implementation intentions and goal achievement: A meta-analysis of effects and processes. Advances in Experimental Social Psychology, 38, 69-119.", "Bélanger-Gravel, A., Godin, G., & Amireault, S. (2013). A meta-analytic review of the effect of implementation intentions on physical activity. Health Psychology Review, 7(1), 23-54.", "Hagger, M. S., Chatzisarantis, N. L. D., et al. (2016). A Multilab Preregistered Replication of the Ego-Depletion Effect. Perspectives on Psychological Science, 11(4), 546-573."] }
+    ],
+  },
 ];
