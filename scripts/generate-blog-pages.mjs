@@ -221,6 +221,7 @@ function articleHtml(article, all) {
     .mobile-nav-close { position:absolute; top:24px; right:24px; width:36px; height:36px; border:none; background:transparent; font-size:28px; line-height:1; cursor:pointer; color:oklch(30% 0.01 60); }
   }
 </style>
+<script src="/analytics.js" async></script>
 </head>
 <body>
 <div style="min-height:100vh;">
