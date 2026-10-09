@@ -31,6 +31,12 @@
   window.fbq('init', PIXEL_ID);
   window.fbq('track', 'PageView');
 
+  // --- 画面下の「無料体験」固定バー(全ページ共通) ---
+  var bar = document.createElement('script');
+  bar.defer = true;
+  bar.src = '/trial-bar.js';
+  document.head.appendChild(bar);
+
   // --- 主要リンクのクリック計測(動線を見るため) ---
   // ページ読み込み後にDOMが作り直されても動くよう、document全体で1つだけ監視する
   document.addEventListener('click', function (e) {
@@ -38,7 +44,8 @@
       var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
       if (!a) return;
       var href = a.getAttribute('href') || '';
-      var where = a.closest('header, .site-header, nav, .mobile-nav-panel') ? 'header' : 'body';
+      var inBar = !!a.closest('#es-trial-bar');
+      var where = inBar ? 'bar' : (a.closest('header, .site-header, nav, .mobile-nav-panel') ? 'header' : 'body');
       var name = null;
       if (href.indexOf('docs.google.com/forms') !== -1) {
         name = 'click_form';
@@ -49,6 +56,8 @@
       else if (href.indexOf('trial') !== -1) name = 'click_trial_' + where;
       else if (href.indexOf('service') !== -1) name = 'click_service_' + where;
       if (name) gtag('event', name, { link_url: a.href });
+      // 固定バーからのクリックは、行き先に関係なく click_trial_bar としても数える
+      if (inBar && name !== 'click_trial_bar') gtag('event', 'click_trial_bar', { link_url: a.href });
     } catch (err) { /* 計測の失敗でサイトの動作は止めない */ }
   }, true);
 })();
