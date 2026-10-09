@@ -29,18 +29,18 @@
     css.textContent =
       'html.es-has-trial-bar body{padding-bottom:calc(60px + env(safe-area-inset-bottom,0px)) !important;}' +
       '#es-trial-bar{position:fixed;left:0;right:0;bottom:0;z-index:150;box-sizing:border-box;' +
-        'background:rgba(255,255,255,.97);border-top:1px solid #e3e3e3;box-shadow:0 -2px 12px rgba(0,0,0,.06);' +
+        'background:#5aa59c;box-shadow:0 -2px 14px rgba(0,0,0,.16);' +
         'padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));' +
         'font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;' +
         'transform:translateY(100%);transition:transform .35s ease;}' +
       '#es-trial-bar.es-tb-show{transform:translateY(0);}' +
       '#es-trial-bar .es-tb-inner{display:flex;align-items:center;justify-content:center;gap:12px;max-width:720px;margin:0 auto;}' +
-      '#es-trial-bar .es-tb-label{font-size:14px;font-weight:700;color:#2b2724;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis;}' +
-      '#es-trial-bar .es-tb-btn{display:inline-block;background:#5aa59c;color:#fff;font-weight:900;font-size:14px;' +
+      '#es-trial-bar .es-tb-label{font-size:14px;font-weight:700;color:#fff;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis;}' +
+      '#es-trial-bar .es-tb-btn{display:inline-block;background:#fff;color:#2f6f66;font-weight:900;font-size:14px;' +
         'line-height:1;padding:11px 20px;border-radius:999px;text-decoration:none;white-space:nowrap;}' +
       '#es-trial-bar .es-tb-close{flex:none;width:32px;height:32px;margin-left:2px;border:0;background:transparent;' +
-        'color:#8a8580;font-size:20px;line-height:1;cursor:pointer;border-radius:50%;}' +
-      '#es-trial-bar .es-tb-close:hover{background:#f0f0f0;}' +
+        'color:rgba(255,255,255,.85);font-size:20px;line-height:1;cursor:pointer;border-radius:50%;}' +
+      '#es-trial-bar .es-tb-close:hover{background:rgba(255,255,255,.2);}' +
       '@media (max-width:380px){#es-trial-bar{padding-left:8px;padding-right:8px;}' +
         '#es-trial-bar .es-tb-inner{gap:8px;}#es-trial-bar .es-tb-label{font-size:13px;}' +
         '#es-trial-bar .es-tb-btn{padding:10px 14px;}#es-trial-bar .es-tb-close{margin-left:0;}}' +
