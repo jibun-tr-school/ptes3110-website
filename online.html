@@ -30,12 +30,12 @@ header.top{padding:14px 0;border-bottom:1px solid var(--bd);background:#fff}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between}
 .brand{font-weight:900;font-size:15px;letter-spacing:.02em;color:var(--teal-d)}
 .brand small{display:block;font-size:11px;font-weight:500;color:var(--sub);letter-spacing:0}
-.hero{padding:34px 0 30px;background:linear-gradient(180deg,#fff 0%,var(--teal-l) 100%)}
+.hero{padding:22px 0 30px;background:linear-gradient(180deg,#fff 0%,var(--teal-l) 100%)}
 .eyebrow{display:inline-block;font-size:12px;font-weight:900;color:var(--teal-d);background:#fff;border:1px solid var(--teal);border-radius:999px;padding:3px 12px;margin-bottom:14px}
-h1{font-size:26px;line-height:1.5;margin:0 0 14px;font-weight:900;letter-spacing:.01em}
+h1{font-size:26px;line-height:1.5;margin:0 0 10px;font-weight:900;letter-spacing:.01em}
 h1 em{font-style:normal;color:var(--teal-d);background:linear-gradient(transparent 62%,#cfe8e3 62%)}
-.lead{margin:0 0 18px;color:var(--sub);font-size:15.5px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.lead{margin:0 0 14px;color:var(--sub);font-size:15px;line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0;list-style:none}
 .chips li{background:#fff;border:1px solid var(--bd);border-radius:12px;padding:8px 12px;font-size:13px;font-weight:700;line-height:1.4}
 .chips b{display:block;font-size:17px;color:var(--teal-d)}
 .hero-img{border-radius:16px;overflow:hidden;margin:0 0 22px;border:1px solid var(--bd)}
@@ -51,7 +51,7 @@ p.kicker{margin:0 0 4px;color:var(--teal-d);font-weight:900;font-size:12px;lette
 h2{margin-bottom:16px}
 h1,h2,h3,.lead,p,li,summary,.cta{word-break:auto-phrase;line-break:strict;text-wrap:pretty}
 h1,h2{text-wrap:balance}
-.punch{margin:0 0 20px;padding:16px 18px;border-left:6px solid var(--teal);background:#fff;border-radius:0 14px 14px 0;font-size:23px;font-weight:900;line-height:1.55;color:var(--ink);box-shadow:0 2px 10px rgba(47,111,102,.10)}
+.punch{margin:0 0 16px;padding:16px 18px;border-left:6px solid var(--teal);background:#fff;border-radius:0 14px 14px 0;font-size:23px;font-weight:900;line-height:1.55;color:var(--ink);box-shadow:0 2px 10px rgba(47,111,102,.10)}
 .punch em{font-style:normal;color:var(--teal-d);font-size:1.25em;background:linear-gradient(transparent 60%,#cfe8e3 60%);padding:0 2px}
 @media (min-width:700px){.punch{font-size:28px}}
 ul.check{list-style:none;margin:0;padding:0}
@@ -126,9 +126,9 @@ figure.photo figcaption{font-size:12.5px;color:var(--sub);padding:8px 12px;backg
     <li>月2回<b>¥5,445〜</b></li>
     <li>体験<b>50分・無料</b></li>
   </ul>
-  <figure class="hero-img" style="margin:0 0 22px"><img src="/images/900bc414f17621ac93283ddb2ca12fd2.png" alt="自宅でオンラインのパーソナルトレーニングを受けている様子" width="744" height="300"></figure>
   <a class="cta" href="https://lin.ee/1Nmpmqt" data-cta="line_hero" target="_blank" rel="noopener">LINEで無料体験を予約する<small>友だち追加後、「2」（オンライン）と送るだけ</small></a>
   <p class="note">料金は税込表示です。体験だけで終わっても問題ありません。</p>
+  <figure class="hero-img" style="margin:22px 0 0"><img src="/images/900bc414f17621ac93283ddb2ca12fd2.png" alt="自宅でオンラインのパーソナルトレーニングを受けている様子" width="744" height="300"></figure>
 </div></section>
 
 <section><div class="wrap">
@@ -272,14 +272,14 @@ figure.photo figcaption{font-size:12.5px;color:var(--sub);padding:8px 12px;backg
     }catch(err){}
   },true);
 
-  /* 画面下の固定ボタン：最初のボタンが画面から出たら表示 */
+  /* 画面下の固定ボタン：最初のボタンが画面に見えていない間は表示（読み込み直後から出る） */
   var hero=document.querySelector('.hero .cta'), bar=document.getElementById('sticky');
   if(hero&&bar&&'IntersectionObserver' in window){
     new IntersectionObserver(function(en){
-      var out=!en[0].isIntersecting&&en[0].boundingClientRect.top<0;
+      var out=en[0].intersectionRatio<0.99;
       bar.classList.toggle('show',out);bar.setAttribute('aria-hidden',out?'false':'true');
-    }).observe(hero);
-  }
+    },{threshold:[0,0.99,1]}).observe(hero);
+  }else if(bar){bar.classList.add('show');bar.setAttribute('aria-hidden','false');}
 })();
 </script>
 </body>
