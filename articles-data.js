@@ -389,4 +389,26 @@ export const articles = [
       { "isList": true, "items": ["農林水産省「米の消費に関する資料」(1人1年当たり消費量:昭和37年度118.3kg、令和5年度(概算)51.1kg)", "厚生労働省「国民健康・栄養調査」(平成23年・2019年・2024年の肥満者割合)", "Hu EA, Pan A, Malik V, Sun Q. (2012) \"White rice consumption and risk of type 2 diabetes: meta-analysis and systematic review.\" BMJ, 344, e1454.", "Saneei P, Larijani B, Esmaillzadeh A. (2017) \"Rice consumption, incidence of chronic diseases and risk of mortality: meta-analysis of cohort studies.\" Public Health Nutrition, 20(2), 233-244.", "Gardner CD, et al. (2018) \"Effect of Low-Fat vs Low-Carbohydrate Diet on 12-Month Weight Loss in Overweight Adults and the Association With Genotype Pattern or Insulin Secretion: The DIETFITS Randomized Clinical Trial.\" JAMA, 319(7), 667-679."] }
     ]
   },
+  {
+    id: 'training-time-of-day', category: 'トレーニング', date: '2026.10.19',
+    title: '運動はいつやるのが効果的？筋トレの研究データで確認した、時間帯が与える本当の影響',
+    excerpt: '「運動するなら、体が温まった夕方が一番効率いいんですよね？」とよく聞かれます。今回は特にデータが充実している筋トレにしぼって、11件の研究をまとめたメタ分析や24週間の比較試験から、時間帯が与える本当の影響を確認してみました。',
+    image: 'images/blog/training-time-of-day.jpg',
+    body: [
+      { isH2: true, text: '結局、運動は何時にやるのが一番効果的なの？' },
+      { isP: true, text: '「運動するなら、何時にやるのが一番効果的なんですか？」会員様からよくいただくご質問です。「体が温まっている夕方の方が、関節の可動域や力の出しやすさは上がる」という話も聞きますし、逆に「朝のうちに済ませた方が続けやすい」という方もいます。有酸素運動からストレッチまで「運動」にもいろいろありますが、今回は特に研究データが充実している「筋トレ(レジスタンストレーニング)」にしぼって、時間帯によって効果にどれくらい差がつくのか確認してみました。' },
+      { isH2: true, text: '11件の研究をまとめたメタ分析では、筋力・筋肥大ともに「有意差なし」' },
+      { isP: true, text: '2019年に学術誌『Chronobiology International』に掲載されたメタ分析(Grgic et al., 2019)では、筋トレの時間帯(朝 vs 夕方)が筋力・筋肥大に与える影響を調べた11件の研究がまとめて分析されています。結果、筋肥大については、朝トレーニンググループと夕方トレーニンググループの間に統計的に有意な差は見られませんでした。筋力についても、両グループでおおむね同程度の伸びが確認されています。ただし、いくつかの研究では「トレーニングした時間帯と同じ時間帯で測定すると、より高いパフォーマンスが出やすい」という、時間帯特異的な適応の傾向も報告されています。つまり、朝に筋トレしている人は朝の筋力テストで強く、夕方に筋トレしている人は夕方の筋力テストで強くなりやすい、という傾向です。' },
+      { isH2: true, text: '24週間かけて比較した研究では、後半だけ夕方グループが優勢に' },
+      { isP: true, text: '個別の研究も見てみましょう。2016年に『Applied Physiology, Nutrition, and Metabolism』誌に掲載された研究(Küüsmaa et al., 2016)では、若い男性52名を対象に、24週間にわたって朝トレーニンググループと夕方トレーニンググループの筋肥大・筋力の変化を比較しています。太もも前面の筋肉(外側広筋)の断面積の変化を見ると、開始から12週目までは、朝グループ・夕方グループともに約9〜14%とほぼ同じペースで増加していました。ところが13週目から24週目にかけては、夕方グループだけが有意に増加を続け(時間帯の主効果 p<0.05、効果量d=0.685)、朝グループは目立った増加が見られなくなりました。一方、筋力(レッグプレスの最大挙上重量)については、24週間を通じて朝・夕方どちらのグループも同じように向上しており、時間帯による有意な差は見られませんでした。「筋力」への影響はほぼ変わらない一方、「筋肉の増え方」についてはこの研究では夕方グループに分があったことになります。ただし研究によって結果にばらつきがあり、11件をまとめたメタ分析全体で見ると、差はかなり小さいという点は押さえておきたいところです。' },
+      { isH2: true, text: '「好きな時間に鍛える」ことで、気持ちの面にも違いが出る' },
+      { isP: true, text: 'もう一つ、興味深い研究をご紹介します。2021年に『Research Quarterly for Exercise and Sport』誌に掲載された研究(Blazer et al., 2021)では、男性12名を対象に、「自分が好きな時間帯」と「好みではない時間帯」でそれぞれベンチプレスのテストを行い、比較しています。結果、バーベルの挙上スピードや限界までの反復回数といった客観的なパフォーマンスには、好みの時間帯かどうかによる差は見られませんでした。しかし、トレーニング前の「やる気」は好みの時間帯の方が有意に高く、トレーニング後の「主観的なきつさ(RPE)」は有意に低いという結果が出ています。実際のパフォーマンス自体はそう変わらなくても、「自分が気持ちよく取り組める時間」を選ぶことで、しんどさの感じ方やモチベーションには、はっきりとした違いが出るということです。' },
+      { isH2: true, text: '三日坊主さん専門ジムが考える、時間帯との付き合い方' },
+      { isP: true, text: 'ここまでの筋トレの研究をまとめると、①筋力への時間帯の影響はほとんどない、②筋肥大についても全体としての差は小さいが、一部研究では夕方に分がある結果も出ている、③客観的なパフォーマンスより「やる気」や「きつさの感じ方」の方に時間帯の影響が出やすい、ということが分かります。E.Sとしては、この結果を踏まえても、「絶対に夕方に運動しないといけない」とは考えていません。それよりも大切にしているのは、「仕事や生活リズムの中で、無理なく確保できる時間」を選ぶことです。理論上ベストとされる時間帯であっても、毎回のスケジュール調整にストレスがかかるようでは長続きしません。多少パフォーマンスに差があったとしても、「気持ちよく、継続しやすい時間」を自分の基準にする方が、トータルでは良い結果につながりやすいはずです。' },
+      { isH2: true, text: 'まとめ：「ベストな時間帯」より「続けられる時間帯」' },
+      { isP: true, text: '結論として、少なくとも筋トレのデータで見る限り、運動の時間帯による効果の差は、多くの方が思うほど大きくはありません。朝しか時間が取れない方も、必要以上に不安に思う必要はありません。大切なのは、できるだけ同じ時間帯で記録を取りながら、自分の成長を確認していくこと。そして何より、「その時間なら続けられる」と思える時間帯を選ぶことです。まずは、ご自身の生活リズムの中で一番無理のない時間を、運動の時間として確保してみてください。' },
+      { isH2: true, text: '出典・参考文献' },
+      { isList: true, items: ["Grgic J, Lazinica B, Garofolini A, Schoenfeld BJ, Saner NJ, Mikulic P. (2019) \"The effects of time of day-specific resistance training on adaptations in skeletal muscle hypertrophy and muscle strength: A systematic review and meta-analysis.\" Chronobiology International, 36(4), 449-460.", "Küüsmaa M, Schumann M, Sedliak M, Kraemer WJ, Newton RU, Malinen JP, Nyman K, Häkkinen A, Häkkinen K. (2016) \"Effects of morning versus evening combined strength and endurance training on physical performance, muscle hypertrophy, and serum hormone concentrations.\" Applied Physiology, Nutrition, and Metabolism, 41(12), 1285-1294.", "Blazer H, Jordan C, Rogers R, Williams T, Marshall M, Pederson J. (2021) \"Effects of Time-of-Day Training Preference on Resistance-Exercise Performance.\" Research Quarterly for Exercise and Sport, 92(3), 492-499."] }
+    ],
+  },
 ];
