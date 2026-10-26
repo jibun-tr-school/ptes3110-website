@@ -27,6 +27,16 @@ const STATIC_PAGES = [
   { path: '/contact.html', priority: '0.6' },
   { path: '/trial.html', priority: '0.9' },
   { path: '/trial-info.html', priority: '0.7' },
+  { path: '/jibun-tr.html', priority: '0.8' },
+  { path: '/training.html', priority: '0.6' },
+  { path: '/training/hip-lift.html', priority: '0.5' },
+  { path: '/training/knee-up-lunge.html', priority: '0.5' },
+  { path: '/training/leg-raise.html', priority: '0.5' },
+  { path: '/training/prone-lat-pull.html', priority: '0.5' },
+  { path: '/training/pushup.html', priority: '0.5' },
+  { path: '/training/split-deadlift.html', priority: '0.5' },
+  { path: '/training/split-squat.html', priority: '0.5' },
+  { path: '/training/wide-squat.html', priority: '0.5' },
 ];
 
 const ACCENT = '#5cc2a6';
