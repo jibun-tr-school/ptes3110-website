@@ -25,192 +25,177 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; background: oklch(97% 0 0); }
-  * { box-sizing: border-box; }
-  a { transition: opacity 0.15s; }
-  a:hover { opacity: 0.65; }
-  .site-header { position: sticky; top: 0; z-index: 200; background: oklch(97% 0 0); border-bottom: 1px solid oklch(92% 0.01 60); }
-  .site-header-inner { display:flex; align-items:center; justify-content:space-between; max-width:1140px; margin:0 auto; padding:16px 24px; gap:24px; }
-  .site-nav-desktop { display:flex; align-items:center; gap:20px; font-size:13px; flex-wrap:wrap; }
-  .site-nav-cta { background:#5aa59c; color:#fff; text-decoration:none; font-weight:700; padding:8px 18px; border-radius:20px; display:inline-block; }
-  .site-nav-cta:hover { opacity:0.85; }
-  .menu-toggle-btn { display:none; border:none; background:transparent; cursor:pointer; padding:6px; }
-  .mobile-nav-panel { display:none; }
-  @media (max-width: 760px) {
-    .site-header-inner { padding:14px 20px; }
-    .site-nav-desktop { display:none; }
-    .menu-toggle-btn { display:flex; align-items:center; justify-content:center; }
-    .mobile-nav-panel { position:fixed; inset:0; background:oklch(97% 0 0); z-index:300; flex-direction:column; padding:88px 32px 32px; gap:4px; transform:translateX(100%); transition:transform 0.25s ease; overflow-y:auto; }
-    .mobile-nav-panel.is-open { display:flex; transform:translateX(0); }
-    .mobile-nav-panel a:not(.site-nav-cta) { padding:16px 4px; font-size:16px; border-bottom:1px solid oklch(92% 0.01 60); text-decoration:none; }
-    .mobile-nav-close { position:absolute; top:24px; right:24px; width:36px; height:36px; border:none; background:transparent; font-size:28px; line-height:1; cursor:pointer; color:oklch(30% 0.01 60); }
-  }
+body{margin:0;background:#151515}
+a{color:#5cc2a6}a:hover{color:#8fe0c8}
+.k{display:inline-block;max-width:100%}
+.navlink{color:#f0ece4;text-decoration:none;font-size:14px;letter-spacing:.04em;padding:10px 4px}
+.navlink:hover{color:#5cc2a6}
+.btn{transition:transform .15s ease, filter .15s ease}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.post{transition:transform .15s ease, border-color .15s ease}
+.post:hover{transform:translateY(-2px);border-color:rgba(92,194,166,.5) !important}
+.k{text-wrap:wrap}
+h1,h2,h3{text-wrap:balance}
+p,li,blockquote{text-wrap:pretty}
+.clamp3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.site-header{position:sticky;top:0;z-index:200;background:rgba(21,21,21,.92);border-bottom:1px solid rgba(255,255,255,.08)}
+.menu-toggle-btn{display:none;border:none;background:transparent;cursor:pointer;padding:6px}
+.mobile-nav-panel{display:none}
+@media (max-width:820px){
+  .navlinks{display:none !important}
+  .menu-toggle-btn{display:flex;align-items:center;justify-content:center}
+  .mobile-nav-panel{position:fixed;inset:0;background:#151515;z-index:300;flex-direction:column;padding:88px 32px 32px;gap:4px;transform:translateX(100%);transition:transform .25s ease;overflow-y:auto}
+  .mobile-nav-panel.is-open{display:flex;transform:translateX(0)}
+  .mobile-nav-panel a{padding:16px 4px;font-size:16px;border-bottom:1px solid rgba(255,255,255,.1);text-decoration:none;color:#f0ece4}
+  .mobile-nav-panel a.panel-cta{margin-top:12px;border-bottom:none;background:#5cc2a6;color:#0d1a17;font-weight:700;text-align:center;border-radius:999px;padding:14px 20px}
+  .mobile-nav-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border:none;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#f0ece4}
+}
 </style>
 </helmet>
-<div data-screen-label="BLOG" style="font-family:'Noto Sans JP',sans-serif;color:oklch(22% 0.01 60);background:oklch(97% 0 0);min-height:100vh;">
 
-  <!-- HEADER -->
+<div style="background:#151515;color:#f0ece4;font-family:'Zen Maru Gothic','Hiragino Maru Gothic Pro',sans-serif;line-height:1.8;overflow-x:clip">
+
   <header class="site-header">
-    <div class="site-header-inner">
-      <a href="index.html" style="text-decoration:none;color:oklch(22% 0.01 60);display:flex;flex-direction:column;">
-        <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.02em;">Personal Training E.S</span>
-        <span style="font-size:11px;color:oklch(45% 0.01 60);letter-spacing:0.05em;">三日坊主さん専門パーソナルジム</span>
+    <div style="max-width:1160px;margin:0 auto;padding:10px clamp(16px,4vw,24px);display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <a href="index.html" aria-label="Personal Training E.S ホーム" style="display:flex;align-items:center">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:40px;width:auto;display:block">
       </a>
-      <nav class="site-nav-desktop">
-      <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:#5aa59c;text-decoration:none;font-weight:700;">BLOG</a>
-      <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
-      <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-      <a href="trial.html" class="site-nav-cta">TRIAL</a>
+      <nav class="navlinks" aria-label="メインメニュー" style="display:flex;align-items:center;gap:24px">
+        <a class="navlink" href="service.html">SERVICE</a>
+        <a class="navlink" href="jibun-tr.html"><span class="k">じぶとれ</span></a>
+        <a class="navlink" href="blog.html">BLOG</a>
+        <a class="navlink" href="access.html">ACCESS</a>
       </nav>
-      <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(22% 0.01 60)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
+      <div style="display:flex;align-items:center;gap:6px">
+        <a class="btn" href="trial.html" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;font-size:14px;padding:10px 20px;border-radius:999px;white-space:nowrap"><span class="k">無料体験</span></a>
+        <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f0ece4" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </header>
   <div class="mobile-nav-panel" id="mobile-nav-panel">
     <button type="button" class="mobile-nav-close" data-menu-close aria-label="閉じる">&times;</button>
-    <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-    <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
-    <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-    <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:#5aa59c;text-decoration:none;font-weight:700;">BLOG</a>
-    <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
-    <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
-    <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-    <a href="trial.html" class="site-nav-cta" style="text-align:center;margin-top:8px;">TRIAL</a>
+    <a href="index.html">HOME</a>
+    <a href="concept.html">CONCEPT</a>
+    <a href="service.html">SERVICE</a>
+    <a href="jibun-tr.html">じぶとれ</a>
+    <a href="training.html">TRAINING</a>
+    <a href="blog.html" style="color:#5cc2a6;font-weight:700">BLOG</a>
+    <a href="access.html">ACCESS</a>
+    <a href="qa.html">Q&amp;A</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="trial.html" class="panel-cta">無料体験</a>
   </div>
 
-  <!-- LIST VIEW (the only view now -- each article links to its own real page under blog/) -->
-  <main style="max-width:1140px;margin:0 auto;padding:12px 24px 80px;">
-    <section style="text-align:center;padding:40px 0 32px;">
-      <div style="font-family:'Zen Maru Gothic',sans-serif;font-size:13px;letter-spacing:0.15em;color:{{ accentColor }};font-weight:700;">BLOG</div>
-      <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-size:34px;font-weight:900;margin:8px 0 12px;">続けるヒント、見つかります</h1>
-      <p style="color:oklch(45% 0.01 60);font-size:15px;line-height:1.9;max-width:520px;margin:0 auto;">三日坊主さん専門パーソナルジムE.Sのトレーナーが、続けるコツ・ダイエット・トレーニングの考え方をゆるく発信します。</p>
-    </section>
-
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;">
-      <button data-cat="__all__" style="{{ allChipStyle }}">すべて</button>
-      <sc-for list="{{ categoryChips }}" as="cat" hint-placeholder-count="4">
-        <button data-cat="{{ cat.name }}" style="{{ cat.chipStyle }}">{{ cat.name }}</button>
-      </sc-for>
+  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(48px,9vw,88px) clamp(16px,4vw,24px) clamp(8px,2vw,16px);text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center">
+      <div style="font-size:12px;letter-spacing:.25em;color:#5cc2a6;font-weight:700">BLOG</div>
+      <h1 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(24px,5.8vw,42px);line-height:1.5;color:#faf8f5"><span class="k">続ける</span><span class="k">ヒント、</span><span class="k">見つかります</span></h1>
+      <p style="margin:0;color:#bdb9b2;font-size:clamp(15px,4vw,16px)"><span class="k">三日坊主さん</span><span class="k">専門パーソナルジムE.Sの</span><span class="k">トレーナーが、</span><span class="k">続ける</span><span class="k">コツ・</span><span class="k">ダイエット・</span><span class="k">トレーニングの</span><span class="k">考え方を</span><span class="k">ゆる</span><span class="k">く</span><span class="k">発信します。</span></p>
     </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;">
-      <sc-for list="{{ filteredArticles }}" as="article" hint-placeholder-count="6">
-        <a href="blog/{{ article.id }}.html" style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;">
-          <div style="{{ article.thumbStyle }}">
-            <sc-if value="{{ article.hasImage }}" hint-placeholder-val="{{ true }}"><img src="{{ article.image }}" alt="{{ article.imageLabel }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.visibility='hidden'"></sc-if>
-            <sc-if value="{{ article.noImage }}" hint-placeholder-val="{{ false }}"><span style="position:relative;font-family:monospace;font-size:11px;color:oklch(50% 0.02 60);background:oklch(99% 0 0 / 0.7);padding:3px 8px;border-radius:4px;">no image</span></sc-if>
-          </div>
-          <div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1;">
-            <div style="display:flex;align-items:center;gap:10px;">
-              <span style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px;background:{{ article.tagBg }};color:{{ article.tagText }};">{{ article.category }}</span>
-              <span style="font-size:12px;color:oklch(55% 0.01 60);">{{ article.date }}</span>
+  </section>  <section>
+    <div style="max-width:1100px;margin:0 auto;padding:clamp(24px,5vw,40px) clamp(16px,4vw,24px) 24px">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px">
+        <button type="button" data-cat="__all__" style="{{ allChipStyle }}"><span class="k">すべて</span></button>
+        <sc-for list="{{ categoryChips }}" as="cat" hint-placeholder-count="4">
+          <button type="button" data-cat="{{ cat.name }}" style="{{ cat.chipStyle }}"><span class="k">{{ cat.name }}</span></button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px">
+        <sc-for list="{{ featuredArticles }}" as="article" hint-placeholder-count="3">
+          <a class="post" href="blog/{{ article.id }}.html" style="display:flex;flex-direction:column;text-decoration:none;color:#f0ece4;background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden">
+            <div style="position:relative;width:100%;aspect-ratio:3/2;background:#222">
+              <sc-if value="{{ article.hasImage }}" hint-placeholder-val="{{ true }}"><img src="{{ article.image }}" alt="" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.visibility='hidden'"></sc-if>
             </div>
-            <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-size:17px;font-weight:700;line-height:1.5;margin:0;">{{ article.title }}</h2>
-            <p style="font-size:13px;color:oklch(45% 0.01 60);line-height:1.8;margin:0;flex:1;">{{ article.excerpt }}</p>
-            <span style="font-size:12px;font-weight:700;color:{{ accentColor }};">続きを読む &rarr;</span>
-          </div>
-        </a>
-      </sc-for>
+            <div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;gap:10px;align-items:center;font-size:12px"><span style="color:#0d1a17;background:#5cc2a6;padding:2px 10px;border-radius:999px;font-weight:700;font-size:12px;white-space:nowrap">{{ article.category }}</span><span style="color:#a8a49d">{{ article.date }}</span></div>
+              <div class="clamp3" style="font-size:15px;font-weight:700;line-height:1.7;color:#faf8f5;word-break:auto-phrase;text-wrap:pretty">{{ article.title }}</div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+      <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+        <p style="text-align:center;color:#a8a49d;padding:60px 0;margin:0">このカテゴリの記事はまだありません。</p>
+      </sc-if>
     </div>
+  </section>  <section>
+    <div style="max-width:1100px;margin:0 auto;padding:8px clamp(16px,4vw,24px) 24px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ restArticles }}" as="article" hint-placeholder-count="6">
+          <a class="post" href="blog/{{ article.id }}.html" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;text-decoration:none;color:#f0ece4;background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 20px">
+            <span style="display:flex;gap:10px;align-items:center;font-size:12px;flex:none"><span style="color:#0d1a17;background:#5cc2a6;padding:2px 10px;border-radius:999px;font-weight:700;font-size:12px;white-space:nowrap">{{ article.category }}</span><span style="color:#a8a49d">{{ article.date }}</span></span>
+            <span style="flex:1 1 280px;font-size:15px;font-weight:600;line-height:1.7;color:#faf8f5;word-break:auto-phrase;text-wrap:pretty">{{ article.title }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>  <section>
+    <div style="max-width:880px;margin:0 auto;padding:clamp(56px,10vw,96px) clamp(16px,4vw,24px);text-align:center;display:flex;flex-direction:column;gap:clamp(14px,2.5vw,20px);align-items:center">
+      
+      <a class="btn" href="trial.html" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;text-align:center;padding:16px clamp(28px,8vw,48px);border-radius:14px;font-size:clamp(16px,4.4vw,18px);display:inline-block;"><span class="k">無料体験に</span><span class="k">申し込む →</span></a>
+    </div>
+  </section>
 
-    <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
-      <p style="text-align:center;color:oklch(50% 0.01 60);padding:60px 0;">このカテゴリの記事はまだありません。</p>
-    </sc-if>
-  </main>
-
-  <!-- FOOTER -->
-  <footer style="border-top:1px solid oklch(90% 0.01 60);padding:36px 24px;text-align:center;">
-    <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:15px;margin-bottom:10px;">Personal Training E.S</div>
-    <nav style="display:flex;gap:18px;justify-content:center;font-size:12px;margin-bottom:16px;flex-wrap:wrap;">
-      <a href="index.html" style="color:oklch(45% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(45% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(45% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="access.html" style="color:oklch(45% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(45% 0.01 60);text-decoration:none;">Q&A</a>
-      <a href="contact.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONTACT</a>
-    </nav>
-    <div style="font-size:11px;color:oklch(55% 0.01 60);">© 2026 Personal Training E.S.</div>
+  <footer style="background:#101010;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="max-width:1160px;margin:0 auto;padding:clamp(40px,8vw,64px) clamp(16px,4vw,24px) 36px;display:flex;flex-wrap:wrap;gap:36px">
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:48px;width:auto;align-self:flex-start">
+        <div style="font-size:14px;color:#bdb9b2">〒243-0815<br><span style="white-space:nowrap"><span class="k">神奈川県厚木市妻</span><span class="k">田西2-19-1</span></span><br><span style="white-space:nowrap"><span class="k">メゾン秋</span><span class="k">本101</span></span></div>
+        <div style="font-size:14px;color:#bdb9b2">TEL 070-9153-3110<br>MAIL ptes3110@gmail.com</div>
+        <div style="font-size:14px;color:#bdb9b2"><span class="k">月・火・木・</span><span class="k">金 10:00〜20:00</span><br><span class="k">土曜 09:00〜18:00</span><br><span class="k">定休日：</span><span class="k">日・祝・水</span></div>
+      </div>
+      <nav aria-label="フッターメニュー" style="flex:1 1 260px;display:flex;flex-wrap:wrap;gap:12px 28px;align-content:flex-start;font-size:14px">
+        <a href="index.html" style="color:#f0ece4;text-decoration:none">HOME</a>
+        <a href="concept.html" style="color:#f0ece4;text-decoration:none">CONCEPT</a>
+        <a href="service.html" style="color:#f0ece4;text-decoration:none">SERVICE</a>
+        <a href="jibun-tr.html" style="color:#f0ece4;text-decoration:none"><span class="k">じぶとれ</span></a>
+        <a href="training.html" style="color:#f0ece4;text-decoration:none">TRAINING</a>
+        <a href="blog.html" style="color:#f0ece4;text-decoration:none">BLOG</a>
+        <a href="access.html" style="color:#f0ece4;text-decoration:none">ACCESS</a>
+        <a href="qa.html" style="color:#f0ece4;text-decoration:none">Q&amp;A</a>
+        <a href="contact.html" style="color:#f0ece4;text-decoration:none">CONTACT</a>
+        <a href="https://www.instagram.com/personal_training_e.s/" style="color:#f0ece4;text-decoration:none">Instagram</a>
+      </nav>
+    </div>
+    <div style="max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,24px) 28px;font-size:12px;color:#8d8a84">© 2026 Personal Training E.S.</div>
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#5aa59c&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#5aa59c&quot;,&quot;oklch(62% 0.16 25)&quot;,&quot;oklch(62% 0.16 340)&quot;,&quot;oklch(58% 0.14 230)&quot;]}}">
+<script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  // NOTE: individual articles no longer render inside this page -- each article has its own
-  // real, crawlable static page generated at build time under blog/<id>.html by
-  // scripts/generate-blog-pages.mjs (run that script after editing articles-data.js). This
-  // page only ever shows the filterable article list now.
+  // 記事の本文は blog/<id>.html に静的ページとして生成されるため(scripts/generate-blog-pages.mjs)、
+  // このページは「カテゴリで絞り込める一覧」だけを表示する。
   state = { category: null, articles: null };
 
   componentDidMount() {
     import('./articles-data.js').then(m => this.setState({ articles: m.articles }));
-    // NOTE: the exported static-page runtime does not bind onClick="{{ () => ... }}" template
-    // expressions to real DOM handlers (function values are dropped during render), so click
-    // interactivity for the category filter is wired manually here via a delegated listener +
-    // static data-cat attributes.
+    // テンプレートの onClick は実DOMに結びつかないため、委譲リスナー+ data-cat 属性でカテゴリ切替を実現する
     if (!this.__clickBound) {
       this.__clickBound = true;
       document.addEventListener('click', (e) => {
         const catBtn = e.target.closest('[data-cat]');
-        if (catBtn) { const cat = catBtn.getAttribute('data-cat'); this.setCategory(cat === '__all__' ? null : cat); }
+        if (catBtn) { const cat = catBtn.getAttribute('data-cat'); this.setState({ category: cat === '__all__' ? null : cat }); }
       });
     }
   }
 
-  categoryStyle(name) {
-    const hues = { '習慣': 150, 'トレーニング': 230, 'ダイエット': 25, 'ジム紹介': 90 };
-    const h = hues[name] ?? 60;
-    return { tagBg: `oklch(94% 0.05 ${h})`, tagText: `oklch(40% 0.13 ${h})` };
-  }
-
-  thumbStyle(seed) {
-    const hues = [25, 150, 230, 90];
-    const h = hues[seed % hues.length];
-    return `aspect-ratio:16/10;position:relative;overflow:hidden;background:repeating-linear-gradient(135deg, oklch(92% 0.03 ${h}), oklch(92% 0.03 ${h}) 10px, oklch(96% 0.01 ${h}) 10px, oklch(96% 0.01 ${h}) 20px);display:flex;align-items:flex-end;justify-content:flex-start;padding:10px;`;
-  }
-
-  setCategory = (cat) => this.setState({ category: cat });
-
   renderVals() {
-    const accentColor = this.props.accentColor ?? '#5aa59c';
-
-    const raw = [...(this.state.articles || [])].sort((a, b) => (a.date < b.date ? 1 : -1));
-    const articles = raw.map((a, i) => {
-      const c = this.categoryStyle(a.category);
-      return { ...a, tagBg: c.tagBg, tagText: c.tagText, hasImage: !!a.image, noImage: !a.image, thumbStyle: this.thumbStyle(i), imageLabel: 'photo: ' + a.title.slice(0, 16) };
-    });
-
-    const categoryNames = ['習慣', 'トレーニング', 'ダイエット', 'ジム紹介'];
-    const chipStyleFor = (name, active) => {
-      const c = this.categoryStyle(name);
-      return active
-        ? `border:none;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;background:${c.tagText};color:#fff;`
-        : `border:1px solid oklch(88% 0.01 60);padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;background:#fff;color:oklch(35% 0.01 60);`;
-    };
-    const categoryChips = categoryNames.map(name => ({ name, chipStyle: chipStyleFor(name, this.state.category === name) }));
-    const allChipStyle = !this.state.category
-      ? `border:none;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;background:${accentColor};color:#fff;`
-      : `border:1px solid oklch(88% 0.01 60);padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;background:#fff;color:oklch(35% 0.01 60);`;
-
-    const filteredArticles = this.state.category ? articles.filter(a => a.category === this.state.category) : articles;
-
+    const chip = (active) => 'padding:8px 18px;border-radius:999px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:inherit;line-height:1.8;' + (active
+      ? 'background:#5cc2a6;color:#0d1a17;border:1px solid #5cc2a6;'
+      : 'background:transparent;color:#f0ece4;border:1px solid rgba(255,255,255,.2);');
+    const all = [...(this.state.articles || [])].sort((a, b) => (a.date < b.date ? 1 : -1))
+      .map(a => ({ ...a, hasImage: !!a.image }));
+    const names = ['トレーニング', 'ダイエット', '習慣', 'ジム紹介'];
+    const categoryChips = names.map(name => ({ name, chipStyle: chip(this.state.category === name) }));
+    const filtered = this.state.category ? all.filter(a => a.category === this.state.category) : all;
     return {
-      accentColor,
-      categoryChips, allChipStyle, filteredArticles, noResults: filteredArticles.length === 0,
-      setCategory: this.setCategory,
+      allChipStyle: chip(!this.state.category), categoryChips,
+      featuredArticles: filtered.slice(0, 3), restArticles: filtered.slice(3),
+      noResults: this.state.articles !== null && filtered.length === 0,
     };
   }
 }
