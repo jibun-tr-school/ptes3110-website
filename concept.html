@@ -25,119 +25,139 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; background: oklch(97% 0 0); }
-  * { box-sizing: border-box; }
-  a { transition: opacity 0.15s; }
-  a:hover { opacity: 0.65; }
-  .site-header { position: sticky; top: 0; z-index: 200; background: oklch(97% 0 0); border-bottom: 1px solid oklch(92% 0.01 60); }
-  .site-header-inner { display:flex; align-items:center; justify-content:space-between; max-width:1140px; margin:0 auto; padding:16px 24px; gap:24px; }
-  .site-nav-desktop { display:flex; align-items:center; gap:20px; font-size:13px; flex-wrap:wrap; }
-  .site-nav-cta { background:#5aa59c; color:#fff; text-decoration:none; font-weight:700; padding:8px 18px; border-radius:20px; display:inline-block; }
-  .site-nav-cta:hover { opacity:0.85; }
-  .menu-toggle-btn { display:none; border:none; background:transparent; cursor:pointer; padding:6px; }
-  .mobile-nav-panel { display:none; }
-  @media (max-width: 760px) {
-    .site-header-inner { padding:14px 20px; }
-    .site-nav-desktop { display:none; }
-    .menu-toggle-btn { display:flex; align-items:center; justify-content:center; }
-    .mobile-nav-panel { position:fixed; inset:0; background:oklch(97% 0 0); z-index:300; flex-direction:column; padding:88px 32px 32px; gap:4px; transform:translateX(100%); transition:transform 0.25s ease; overflow-y:auto; }
-    .mobile-nav-panel.is-open { display:flex; transform:translateX(0); }
-    .mobile-nav-panel a:not(.site-nav-cta) { padding:16px 4px; font-size:16px; border-bottom:1px solid oklch(92% 0.01 60); text-decoration:none; }
-    .mobile-nav-close { position:absolute; top:24px; right:24px; width:36px; height:36px; border:none; background:transparent; font-size:28px; line-height:1; cursor:pointer; color:oklch(30% 0.01 60); }
-  }
+body{margin:0;background:#151515}
+a{color:#5cc2a6}a:hover{color:#8fe0c8}
+.k{display:inline-block;max-width:100%}
+.navlink{color:#f0ece4;text-decoration:none;font-size:14px;letter-spacing:.04em;padding:10px 4px}
+.navlink:hover{color:#5cc2a6}
+.btn{transition:transform .15s ease, filter .15s ease}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.post{transition:transform .15s ease, border-color .15s ease}
+.post:hover{transform:translateY(-2px);border-color:rgba(92,194,166,.5) !important}
+.k{text-wrap:wrap}
+h1,h2,h3{text-wrap:balance}
+p,li,blockquote{text-wrap:pretty}
+.clamp3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.site-header{position:sticky;top:0;z-index:200;background:rgba(21,21,21,.92);border-bottom:1px solid rgba(255,255,255,.08)}
+.menu-toggle-btn{display:none;border:none;background:transparent;cursor:pointer;padding:6px}
+.mobile-nav-panel{display:none}
+@media (max-width:820px){
+  .navlinks{display:none !important}
+  .menu-toggle-btn{display:flex;align-items:center;justify-content:center}
+  .mobile-nav-panel{position:fixed;inset:0;background:#151515;z-index:300;flex-direction:column;padding:88px 32px 32px;gap:4px;transform:translateX(100%);transition:transform .25s ease;overflow-y:auto}
+  .mobile-nav-panel.is-open{display:flex;transform:translateX(0)}
+  .mobile-nav-panel a{padding:16px 4px;font-size:16px;border-bottom:1px solid rgba(255,255,255,.1);text-decoration:none;color:#f0ece4}
+  .mobile-nav-panel a.panel-cta{margin-top:12px;border-bottom:none;background:#5cc2a6;color:#0d1a17;font-weight:700;text-align:center;border-radius:999px;padding:14px 20px}
+  .mobile-nav-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border:none;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#f0ece4}
+}
 </style>
 </helmet>
-<div data-screen-label="CONCEPT" style="font-family:'Noto Sans JP',sans-serif;color:oklch(22% 0.01 60);background:oklch(97% 0 0);min-height:100vh;">
+
+<div style="background:#151515;color:#f0ece4;font-family:'Zen Maru Gothic','Hiragino Maru Gothic Pro',sans-serif;line-height:1.8;overflow-x:clip">
+
   <header class="site-header">
-    <div class="site-header-inner">
-      <a href="index.html" style="text-decoration:none;color:oklch(22% 0.01 60);display:flex;flex-direction:column;">
-        <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.02em;">Personal Training E.S</span>
-        <span style="font-size:11px;color:oklch(45% 0.01 60);letter-spacing:0.05em;">三日坊主さん専門パーソナルジム</span>
+    <div style="max-width:1160px;margin:0 auto;padding:10px clamp(16px,4vw,24px);display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <a href="index.html" aria-label="Personal Training E.S ホーム" style="display:flex;align-items:center">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:40px;width:auto;display:block">
       </a>
-      <nav class="site-nav-desktop">
-      <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:#5aa59c;text-decoration:none;font-weight:700;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
-      <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-      <a href="trial.html" class="site-nav-cta">TRIAL</a>
+      <nav class="navlinks" aria-label="メインメニュー" style="display:flex;align-items:center;gap:24px">
+        <a class="navlink" href="service.html">SERVICE</a>
+        <a class="navlink" href="jibun-tr.html"><span class="k">じぶとれ</span></a>
+        <a class="navlink" href="blog.html">BLOG</a>
+        <a class="navlink" href="access.html">ACCESS</a>
       </nav>
-      <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(22% 0.01 60)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
+      <div style="display:flex;align-items:center;gap:6px">
+        <a class="btn" href="trial.html" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;font-size:14px;padding:10px 20px;border-radius:999px;white-space:nowrap"><span class="k">無料体験</span></a>
+        <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f0ece4" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </header>
   <div class="mobile-nav-panel" id="mobile-nav-panel">
     <button type="button" class="mobile-nav-close" data-menu-close aria-label="閉じる">&times;</button>
-    <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-    <a href="concept.html" style="color:#5aa59c;text-decoration:none;font-weight:700;">CONCEPT</a>
-    <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-    <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
-    <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
-    <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
-    <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-    <a href="trial.html" class="site-nav-cta" style="text-align:center;margin-top:8px;">TRIAL</a>
+    <a href="index.html">HOME</a>
+    <a href="concept.html" style="color:#5cc2a6;font-weight:700">CONCEPT</a>
+    <a href="service.html">SERVICE</a>
+    <a href="jibun-tr.html">じぶとれ</a>
+    <a href="training.html">TRAINING</a>
+    <a href="blog.html">BLOG</a>
+    <a href="access.html">ACCESS</a>
+    <a href="qa.html">Q&amp;A</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="trial.html" class="panel-cta">無料体験</a>
   </div>
 
-  <section style="max-width:700px;margin:40px auto 0;padding:0 24px;text-align:center;">
-    <div style="font-size:12px;color:#5aa59c;letter-spacing:0.15em;font-weight:700;margin-bottom:14px;">CONCEPT</div>
-    <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-size:26px;font-weight:900;line-height:1.7;">E.Sが続けることを<br>大切にしている<span style="color:#5aa59c;">3つ</span>の理由</h1>
+  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(48px,9vw,88px) clamp(16px,4vw,24px) clamp(8px,2vw,16px);text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center">
+      <div style="font-size:12px;letter-spacing:.25em;color:#5cc2a6;font-weight:700">CONCEPT</div>
+      <h1 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(24px,5.8vw,42px);line-height:1.5;color:#faf8f5"><span class="k">E.Sが</span><span class="k">続ける</span><span class="k">ことを</span><span class="k">大切に</span><span class="k">している</span><span style="color:#5cc2a6"><span class="k">3つ</span></span><span class="k">の理由</span></h1>
+      
+    </div>
+  </section>  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(32px,6vw,56px) clamp(16px,4vw,24px) 24px">
+<div style="display:flex;flex-direction:column;gap:20px">
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,28px);align-items:flex-start">
+        <div aria-hidden="true" style="width:88px;height:88px;border-radius:50%;border:1.5px solid rgba(250,248,245,.65);background:transparent;overflow:hidden;flex:none;isolation:isolate"><img src="images/image-1.png" alt="" style="display:block;width:100%;height:100%;object-fit:cover;filter:invert(1);mix-blend-mode:screen"></div>
+        <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:12px;letter-spacing:.16em;color:#5cc2a6;font-weight:700"><span class="k">理由①</span></div>
+          <h3 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(20px,5.4vw,28px);line-height:1.5;color:#faf8f5"><span class="k">「続ける</span><span class="k">こと」は</span><span class="k">みんな苦手</span></h3>
+          <p style="margin:0;font-size:15px;color:#d6d2cb"><span class="k">日本では</span><strong style="color:#5cc2a6"><span class="k">約70％</span></strong><span class="k">の</span><span class="k">人が、</span><span class="k">運動を</span><span class="k">習慣化で</span><span class="k">きていません。</span><span class="k">だからこそ</span><span class="k">E.Sは</span><span class="k">「続ける</span><span class="k">こと」に</span><span class="k">力を</span><span class="k">入れています。</span></p>
+          <p style="margin:6px 0 0;font-size:12px;color:#8d8a84;line-height:1.7"><span class="k">※日本の</span><span class="k">厚生労働省が</span><span class="k">実施した</span><span class="k">全国調査</span><span class="k">「週2回以上・</span><span class="k">1日30分以上の</span><span class="k">運動習慣が</span><span class="k">ある」人の割合</span><br><span class="k">男性約31.8％、</span><span class="k">女性約25.5％</span></p>
+        </div>
+      </div>
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,28px);align-items:flex-start">
+        <div aria-hidden="true" style="width:88px;height:88px;border-radius:50%;border:1.5px solid rgba(250,248,245,.65);background:transparent;overflow:hidden;flex:none;isolation:isolate"><img loading="lazy" decoding="async" src="images/image-741beccf-a9e4-4911-bd2f-5f6097f8ba6d.png" alt="" style="display:block;width:100%;height:100%;object-fit:cover;filter:invert(1);mix-blend-mode:screen"></div>
+        <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:12px;letter-spacing:.16em;color:#5cc2a6;font-weight:700"><span class="k">理由②</span></div>
+          <h3 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(20px,5.4vw,28px);line-height:1.5;color:#faf8f5"><span class="k">運動を</span><span class="k">「当たり前のこと」に</span></h3>
+          <p style="margin:0;font-size:15px;color:#d6d2cb"><span class="k">運動を</span><span class="k">続けていくと、</span><span class="k">それが</span><span class="k">日常生活の</span><span class="k">一部に</span><span class="k">なっていきます。</span><span class="k">その</span><span class="k">瞬間、</span><span class="k">運動が</span><span class="k">特別な</span><span class="k">イベントから</span><span class="k">「当たり前の</span><span class="k">こと」に</span><span class="k">変わります。</span></p>
+          
+        </div>
+      </div>
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,28px);align-items:flex-start">
+        <div aria-hidden="true" style="width:88px;height:88px;border-radius:50%;border:1.5px solid rgba(250,248,245,.65);background:transparent;overflow:hidden;flex:none;isolation:isolate"><img loading="lazy" decoding="async" src="images/image-1a1a0f58-97c6-4861-bee9-3bec9f5e4fa0.png" alt="" style="display:block;width:100%;height:100%;object-fit:cover;filter:invert(1);mix-blend-mode:screen"></div>
+        <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:12px;letter-spacing:.16em;color:#5cc2a6;font-weight:700"><span class="k">理由③</span></div>
+          <h3 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(20px,5.4vw,28px);line-height:1.5;color:#faf8f5"><span class="k">「続ける</span><span class="k">こと」で</span><span class="k">本当の成果に</span></h3>
+          <p style="margin:0;font-size:15px;color:#d6d2cb"><span class="k">健康な</span><span class="k">身体や</span><span class="k">理想の</span><span class="k">体型は、</span><span class="k">一時的な</span><span class="k">努力だけでは</span><span class="k">定着しません。</span><span class="k">続ける</span><span class="k">ことで</span><span class="k">形成された</span><span class="k">習慣から</span><span class="k">「本当の</span><span class="k">成果」が</span><span class="k">得られます。</span></p>
+          
+        </div>
+      </div>
+</div>
+    </div>
+  </section>  <section>
+    <div style="max-width:880px;margin:0 auto;padding:clamp(56px,10vw,96px) clamp(16px,4vw,24px);text-align:center;display:flex;flex-direction:column;gap:clamp(14px,2.5vw,20px);align-items:center">
+      
+      <a class="btn" href="trial.html" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;text-align:center;padding:16px clamp(28px,8vw,48px);border-radius:14px;font-size:clamp(16px,4.4vw,18px);display:inline-block;"><span class="k">無料体験に</span><span class="k">申し込む →</span></a>
+    </div>
   </section>
 
-  <section style="max-width:640px;margin:56px auto 0;padding:0 24px;">
-  <div style="background:#fff;border-radius:16px;box-shadow:0 2px 16px oklch(0% 0 0 / 0.06);padding:36px 28px;text-align:center;">
-    <div style="display:inline-block;background:#5aa59c;color:#fff;padding:4px 18px;font-size:13px;font-weight:700;margin-bottom:24px;white-space:nowrap;border-radius:20px;">理由①</div>
-    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-size:19px;margin-bottom:24px;">「続けること」はみんな苦手</h2>
-    <div style="position:relative;max-width:400px;width:100%;aspect-ratio:4/3;margin:0 auto 24px;overflow:hidden;border-radius:8px;background:#fff;"><img src="images/image-1.png" alt="理由1写真" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" onerror="this.style.visibility='hidden'"></div>
-    <p style="font-size:15px;line-height:2.1;">日本では<strong>約70％</strong>の人が、運動を習慣化できていません。だからこそE.Sは<strong style="white-space:nowrap;">「続けること」</strong>に力を入れています。</p>
-    <p style="font-size:11px;color:oklch(50% 0.01 60);margin-top:16px;line-height:1.8;">※日本の厚生労働省が実施した全国調査「週2回以上・1日30分以上の運動習慣がある」人の割合<br><strong>男性約31.8％、女性約25.5％</strong></p>
-  </div>
-  </section>
-
-  <section style="max-width:640px;margin:36px auto 0;padding:0 24px;">
-  <div style="background:#fff;border-radius:16px;box-shadow:0 2px 16px oklch(0% 0 0 / 0.06);padding:36px 28px;text-align:center;">
-    <div style="display:inline-block;background:#5aa59c;color:#fff;padding:4px 18px;font-size:13px;font-weight:700;margin-bottom:24px;white-space:nowrap;border-radius:20px;">理由②</div>
-    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-size:19px;margin-bottom:24px;">運動を「当たり前のこと」に</h2>
-    <div style="position:relative;max-width:400px;width:100%;aspect-ratio:4/3;margin:0 auto 24px;overflow:hidden;border-radius:8px;background:#fff;"><img src="images/image-741beccf-a9e4-4911-bd2f-5f6097f8ba6d.png" alt="理由2写真" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" onerror="this.style.visibility='hidden'"></div>
-    <p style="font-size:15px;line-height:2.1;">運動を続けていくと、それが日常生活の一部になっていきます。その瞬間、運動が特別なイベントから<strong style="white-space:nowrap;">「当たり前のこと」</strong>に変わります。</p>
-  </div>
-  </section>
-
-  <section style="max-width:640px;margin:36px auto 0;padding:0 24px;">
-  <div style="background:#fff;border-radius:16px;box-shadow:0 2px 16px oklch(0% 0 0 / 0.06);padding:36px 28px;text-align:center;">
-    <div style="display:inline-block;background:#5aa59c;color:#fff;padding:4px 18px;font-size:13px;font-weight:700;margin-bottom:24px;white-space:nowrap;border-radius:20px;">理由③</div>
-    <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-size:19px;margin-bottom:24px;">「続けること」で本当の成果に</h2>
-    <div style="position:relative;max-width:400px;width:100%;aspect-ratio:4/3;margin:0 auto 24px;overflow:hidden;border-radius:8px;background:#fff;"><img src="images/image-1a1a0f58-97c6-4861-bee9-3bec9f5e4fa0.png" alt="理由3写真" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;" onerror="this.style.visibility='hidden'"></div>
-    <p style="font-size:15px;line-height:2.1;">健康な身体や理想の体型は、一時的な努力だけでは定着しません。続けることで形成された習慣から<strong style="white-space:nowrap;">「本当の成果」</strong>が得られます。</p>
-  </div>
-  </section>
-
-  <section style="max-width:640px;margin:80px auto 0;padding:0 24px;text-align:center;">
-    <a href="trial.html" style="display:inline-block;background:#5aa59c;color:#fff;font-weight:700;padding:18px 48px;border-radius:8px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-size:16px;box-shadow:0 4px 16px oklch(60% 0.08 165 / 0.35);">無料体験に申し込む</a>
-  </section>
-
-  <footer style="border-top:1px solid oklch(90% 0.01 60);padding:36px 24px;text-align:center;margin-top:80px;">
-    <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:15px;margin-bottom:10px;">Personal Training E.S</div>
-    <nav style="display:flex;gap:18px;justify-content:center;font-size:12px;margin-bottom:16px;flex-wrap:wrap;">
-      <a href="index.html" style="color:oklch(45% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(45% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(45% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="access.html" style="color:oklch(45% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(45% 0.01 60);text-decoration:none;">Q&A</a>
-      <a href="contact.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONTACT</a>
-    </nav>
-    <div style="font-size:11px;color:oklch(55% 0.01 60);">© 2026 Personal Training E.S.</div>
+  <footer style="background:#101010;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="max-width:1160px;margin:0 auto;padding:clamp(40px,8vw,64px) clamp(16px,4vw,24px) 36px;display:flex;flex-wrap:wrap;gap:36px">
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:48px;width:auto;align-self:flex-start">
+        <div style="font-size:14px;color:#bdb9b2">〒243-0815<br><span style="white-space:nowrap"><span class="k">神奈川県厚木市妻</span><span class="k">田西2-19-1</span></span><br><span style="white-space:nowrap"><span class="k">メゾン秋</span><span class="k">本101</span></span></div>
+        <div style="font-size:14px;color:#bdb9b2">TEL 070-9153-3110<br>MAIL ptes3110@gmail.com</div>
+        <div style="font-size:14px;color:#bdb9b2"><span class="k">月・火・木・</span><span class="k">金 10:00〜20:00</span><br><span class="k">土曜 09:00〜18:00</span><br><span class="k">定休日：</span><span class="k">日・祝・水</span></div>
+      </div>
+      <nav aria-label="フッターメニュー" style="flex:1 1 260px;display:flex;flex-wrap:wrap;gap:12px 28px;align-content:flex-start;font-size:14px">
+        <a href="index.html" style="color:#f0ece4;text-decoration:none">HOME</a>
+        <a href="concept.html" style="color:#f0ece4;text-decoration:none">CONCEPT</a>
+        <a href="service.html" style="color:#f0ece4;text-decoration:none">SERVICE</a>
+        <a href="jibun-tr.html" style="color:#f0ece4;text-decoration:none"><span class="k">じぶとれ</span></a>
+        <a href="training.html" style="color:#f0ece4;text-decoration:none">TRAINING</a>
+        <a href="blog.html" style="color:#f0ece4;text-decoration:none">BLOG</a>
+        <a href="access.html" style="color:#f0ece4;text-decoration:none">ACCESS</a>
+        <a href="qa.html" style="color:#f0ece4;text-decoration:none">Q&amp;A</a>
+        <a href="contact.html" style="color:#f0ece4;text-decoration:none">CONTACT</a>
+        <a href="https://www.instagram.com/personal_training_e.s/" style="color:#f0ece4;text-decoration:none">Instagram</a>
+      </nav>
+    </div>
+    <div style="max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,24px) 28px;font-size:12px;color:#8d8a84">© 2026 Personal Training E.S.</div>
   </footer>
 </div>
 </x-dc>

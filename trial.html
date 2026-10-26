@@ -25,116 +25,135 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; background: oklch(97% 0 0); }
-  * { box-sizing: border-box; }
-  a { transition: opacity 0.15s; }
-  a:hover { opacity: 0.65; }
-  .site-header { position: sticky; top: 0; z-index: 200; background: oklch(97% 0 0); border-bottom: 1px solid oklch(92% 0.01 60); }
-  .site-header-inner { display:flex; align-items:center; justify-content:space-between; max-width:1140px; margin:0 auto; padding:16px 24px; gap:24px; }
-  .site-nav-desktop { display:flex; align-items:center; gap:20px; font-size:13px; flex-wrap:wrap; }
-  .site-nav-cta { background:#5aa59c; color:#fff; text-decoration:none; font-weight:700; padding:8px 18px; border-radius:20px; display:inline-block; }
-  .site-nav-cta:hover { opacity:0.85; }
-  .menu-toggle-btn { display:none; border:none; background:transparent; cursor:pointer; padding:6px; }
-  .mobile-nav-panel { display:none; }
-  @media (max-width: 760px) {
-    .site-header-inner { padding:14px 20px; }
-    .site-nav-desktop { display:none; }
-    .menu-toggle-btn { display:flex; align-items:center; justify-content:center; }
-    .mobile-nav-panel { position:fixed; inset:0; background:oklch(97% 0 0); z-index:300; flex-direction:column; padding:88px 32px 32px; gap:4px; transform:translateX(100%); transition:transform 0.25s ease; overflow-y:auto; }
-    .mobile-nav-panel.is-open { display:flex; transform:translateX(0); }
-    .mobile-nav-panel a:not(.site-nav-cta) { padding:16px 4px; font-size:16px; border-bottom:1px solid oklch(92% 0.01 60); text-decoration:none; }
-    .mobile-nav-close { position:absolute; top:24px; right:24px; width:36px; height:36px; border:none; background:transparent; font-size:28px; line-height:1; cursor:pointer; color:oklch(30% 0.01 60); }
-  }
+body{margin:0;background:#151515}
+a{color:#5cc2a6}a:hover{color:#8fe0c8}
+.k{display:inline-block;max-width:100%}
+.navlink{color:#f0ece4;text-decoration:none;font-size:14px;letter-spacing:.04em;padding:10px 4px}
+.navlink:hover{color:#5cc2a6}
+.btn{transition:transform .15s ease, filter .15s ease}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.post{transition:transform .15s ease, border-color .15s ease}
+.post:hover{transform:translateY(-2px);border-color:rgba(92,194,166,.5) !important}
+.k{text-wrap:wrap}
+h1,h2,h3{text-wrap:balance}
+p,li,blockquote{text-wrap:pretty}
+.clamp3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.site-header{position:sticky;top:0;z-index:200;background:rgba(21,21,21,.92);border-bottom:1px solid rgba(255,255,255,.08)}
+.menu-toggle-btn{display:none;border:none;background:transparent;cursor:pointer;padding:6px}
+.mobile-nav-panel{display:none}
+@media (max-width:820px){
+  .navlinks{display:none !important}
+  .menu-toggle-btn{display:flex;align-items:center;justify-content:center}
+  .mobile-nav-panel{position:fixed;inset:0;background:#151515;z-index:300;flex-direction:column;padding:88px 32px 32px;gap:4px;transform:translateX(100%);transition:transform .25s ease;overflow-y:auto}
+  .mobile-nav-panel.is-open{display:flex;transform:translateX(0)}
+  .mobile-nav-panel a{padding:16px 4px;font-size:16px;border-bottom:1px solid rgba(255,255,255,.1);text-decoration:none;color:#f0ece4}
+  .mobile-nav-panel a.panel-cta{margin-top:12px;border-bottom:none;background:#5cc2a6;color:#0d1a17;font-weight:700;text-align:center;border-radius:999px;padding:14px 20px}
+  .mobile-nav-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border:none;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#f0ece4}
+}
 </style>
 </helmet>
-<div data-screen-label="TRIAL" style="font-family:'Noto Sans JP',sans-serif;color:oklch(22% 0.01 60);background:oklch(97% 0 0);min-height:100vh;">
+
+<div style="background:#151515;color:#f0ece4;font-family:'Zen Maru Gothic','Hiragino Maru Gothic Pro',sans-serif;line-height:1.8;overflow-x:clip">
+
   <header class="site-header">
-    <div class="site-header-inner">
-      <a href="index.html" style="text-decoration:none;color:oklch(22% 0.01 60);display:flex;flex-direction:column;">
-        <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.02em;">Personal Training E.S</span>
-        <span style="font-size:11px;color:oklch(45% 0.01 60);letter-spacing:0.05em;">三日坊主さん専門パーソナルジム</span>
+    <div style="max-width:1160px;margin:0 auto;padding:10px clamp(16px,4vw,24px);display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <a href="index.html" aria-label="Personal Training E.S ホーム" style="display:flex;align-items:center">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:40px;width:auto;display:block">
       </a>
-      <nav class="site-nav-desktop">
-      <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
-      <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-      <a href="trial.html" class="site-nav-cta">TRIAL</a>
+      <nav class="navlinks" aria-label="メインメニュー" style="display:flex;align-items:center;gap:24px">
+        <a class="navlink" href="service.html">SERVICE</a>
+        <a class="navlink" href="jibun-tr.html"><span class="k">じぶとれ</span></a>
+        <a class="navlink" href="blog.html">BLOG</a>
+        <a class="navlink" href="access.html">ACCESS</a>
       </nav>
-      <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(22% 0.01 60)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
+      <div style="display:flex;align-items:center;gap:6px">
+        <a class="btn" href="trial.html" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;font-size:14px;padding:10px 20px;border-radius:999px;white-space:nowrap"><span class="k">無料体験</span></a>
+        <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f0ece4" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </header>
   <div class="mobile-nav-panel" id="mobile-nav-panel">
     <button type="button" class="mobile-nav-close" data-menu-close aria-label="閉じる">&times;</button>
-    <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-    <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
-    <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-    <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
-    <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
-    <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
-    <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-    <a href="trial.html" class="site-nav-cta" style="text-align:center;margin-top:8px;">TRIAL</a>
+    <a href="index.html">HOME</a>
+    <a href="concept.html">CONCEPT</a>
+    <a href="service.html">SERVICE</a>
+    <a href="jibun-tr.html">じぶとれ</a>
+    <a href="training.html">TRAINING</a>
+    <a href="blog.html">BLOG</a>
+    <a href="access.html">ACCESS</a>
+    <a href="qa.html">Q&amp;A</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="trial.html" class="panel-cta">無料体験</a>
   </div>
 
-  <section style="max-width:600px;margin:40px auto 0;padding:0 24px;text-align:center;">
-    <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-size:24px;font-weight:900;margin:0 0 10px;">体験セッション</h1>
-    <div style="font-size:12px;color:#5aa59c;letter-spacing:0.15em;font-weight:700;margin-bottom:20px;">TRIAL</div>
-    <p style="font-size:14px;color:oklch(40% 0.01 60);line-height:2;margin-bottom:28px;">体験のお申込は下記の予約フォームからお申し込みください。<br>体験セッションの詳細は<a href="trial-info.html" style="color:#5aa59c;">こちら</a>からご確認ください。</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSedPzxbkred2XB-M66-YGM3oKlpcLbOlGh-mNP8nfDB1DiXHw/viewform" target="_blank" rel="noreferrer noopener" style="display:inline-block;background:#5aa59c;color:#fff;font-weight:700;padding:18px 48px;border-radius:8px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-size:16px;box-shadow:0 4px 16px oklch(60% 0.08 165 / 0.35);">無料体験を申し込む</a>
-  </section>
-
-  <section style="background:#fff;margin-top:64px;padding:56px 24px;">
-  <div style="max-width:700px;margin:0 auto;">
-    <h2 style="text-align:center;font-family:'Zen Maru Gothic',sans-serif;font-size:20px;margin-bottom:40px;">体験セッションまでの3ステップ</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;">
-      <div style="text-align:center;">
-        <div style="display:inline-block;border:1px solid oklch(30% 0 0);padding:3px 14px;font-size:12px;font-weight:700;margin-bottom:14px;white-space:nowrap;border-radius:20px;">①お申込み</div>
-        <div style="position:relative;width:100%;aspect-ratio:1/1;margin-bottom:14px;overflow:hidden;border-radius:8px;background:#fff;border:1px solid oklch(90% 0.01 60);"><img src="images/image-d654fa25-4e1a-4a75-bf50-e89f6543d746.png" alt="STEP1" style="position:absolute;inset:0;width:100%;height:100%;padding:24px;box-sizing:border-box;object-fit:contain;" onerror="this.style.visibility='hidden'"></div>
-        <p style="font-size:13px;color:oklch(40% 0.01 60);line-height:1.8;">予約フォームから、各種入力を行い、送信するだけ。所要時間は1分程度です</p>
+  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(48px,9vw,88px) clamp(16px,4vw,24px) clamp(8px,2vw,16px);text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center">
+      <div style="font-size:12px;letter-spacing:.25em;color:#5cc2a6;font-weight:700">TRIAL</div>
+      <h1 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(24px,5.8vw,42px);line-height:1.5;color:#faf8f5"><span class="k">体験セッション</span></h1>
+      <p style="margin:0;color:#bdb9b2;font-size:clamp(15px,4vw,16px)"><span class="k">体験の</span><span class="k">お申込は</span><span class="k">下記の</span><span class="k">予約フォームから</span><br><span class="k">お申し込みください。</span><br><a href="trial-info.html" style="font-weight:700"><span class="k">体験セッションの</span><span class="k">詳細はこちら</span></a></p>
+    </div>
+  </section>  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(24px,5vw,40px) clamp(16px,4vw,24px) 24px">
+      <div style="text-align:center"><a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSedPzxbkred2XB-M66-YGM3oKlpcLbOlGh-mNP8nfDB1DiXHw/viewform" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;text-align:center;padding:16px clamp(28px,8vw,48px);border-radius:14px;font-size:clamp(16px,4.4vw,18px);display:inline-block;"><span class="k">無料体験を</span><span class="k">申し込む →</span></a></div>
+    </div>
+  </section>  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(40px,7vw,72px) clamp(16px,4vw,24px) 24px">
+      <div style="text-align:center;display:flex;flex-direction:column;gap:10px;margin-bottom:clamp(24px,5vw,40px)">
+        <div style="font-size:12px;letter-spacing:.25em;color:#5cc2a6;font-weight:700">3 STEPS</div>
+        <h2 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(21px,5.4vw,34px);line-height:1.5;color:#faf8f5"><span class="k">体験セッション</span><span class="k">までの</span><span class="k">3ステップ</span></h2>
       </div>
-      <div style="text-align:center;">
-        <div style="display:inline-block;border:1px solid oklch(30% 0 0);padding:3px 14px;font-size:12px;font-weight:700;margin-bottom:14px;white-space:nowrap;border-radius:20px;">②体験日時の決定</div>
-        <div style="position:relative;width:100%;aspect-ratio:1/1;margin-bottom:14px;overflow:hidden;border-radius:8px;background:#fff;border:1px solid oklch(90% 0.01 60);"><img src="images/image-37211094-9b0b-4401-b25c-a61d51d054b1.png" alt="STEP2" style="position:absolute;inset:0;width:100%;height:100%;padding:24px;box-sizing:border-box;object-fit:contain;" onerror="this.style.visibility='hidden'"></div>
-        <p style="font-size:13px;color:oklch(40% 0.01 60);line-height:1.8;">体験日時をメールにて確定します。オンライン体験の方はURLがメールで届きます。</p>
-      </div>
-      <div style="text-align:center;">
-        <div style="display:inline-block;border:1px solid oklch(30% 0 0);padding:3px 14px;font-size:12px;font-weight:700;margin-bottom:14px;white-space:nowrap;border-radius:20px;">③体験当日</div>
-        <div style="position:relative;width:100%;aspect-ratio:1/1;margin-bottom:14px;overflow:hidden;border-radius:8px;background:#fff;border:1px solid oklch(90% 0.01 60);"><img src="images/image-b16df87b-b59d-4cc3-b119-0981ec575ebc.png" alt="STEP3" style="position:absolute;inset:0;width:100%;height:100%;padding:24px;box-sizing:border-box;object-fit:contain;" onerror="this.style.visibility='hidden'"></div>
-        <p style="font-size:13px;color:oklch(40% 0.01 60);line-height:1.8;">当日はトレーナーが丁寧にサポート。リラックスしてご参加ください。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px">
+        <div style="flex:1 1 260px;background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:clamp(34px,9vw,44px);line-height:1;color:#5cc2a6">①</div>
+          <h3 style="margin:0;font-size:clamp(17px,4.6vw,19px);color:#faf8f5"><span class="k">お申込み</span></h3>
+          <p style="margin:0;font-size:14px;color:#bdb9b2"><span class="k">予約フォームから、</span><span class="k">各種入力を</span><span class="k">行い、</span><span class="k">送信するだけ。</span><span class="k">所要時間は</span><span class="k">1分程度です</span></p>
+        </div>
+        <div style="flex:1 1 260px;background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:clamp(34px,9vw,44px);line-height:1;color:#5cc2a6">②</div>
+          <h3 style="margin:0;font-size:clamp(17px,4.6vw,19px);color:#faf8f5"><span class="k">体験日時の決定</span></h3>
+          <p style="margin:0;font-size:14px;color:#bdb9b2"><span class="k">体験日時を</span><span class="k">メールにて</span><span class="k">確定します。</span><span class="k">オンライン体験の</span><span class="k">方は</span><span class="k">URLが</span><span class="k">メールで</span><span class="k">届きます。</span></p>
+        </div>
+        <div style="flex:1 1 260px;background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-direction:column;gap:8px">
+          <div style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:clamp(34px,9vw,44px);line-height:1;color:#5cc2a6">③</div>
+          <h3 style="margin:0;font-size:clamp(17px,4.6vw,19px);color:#faf8f5"><span class="k">体験当日</span></h3>
+          <p style="margin:0;font-size:14px;color:#bdb9b2"><span class="k">当日は</span><span class="k">トレーナーが</span><span class="k">丁寧に</span><span class="k">サポート。</span><span class="k">リラックスして</span><span class="k">ご参加ください。</span></p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>  <section>
+    <div style="max-width:880px;margin:0 auto;padding:clamp(56px,10vw,96px) clamp(16px,4vw,24px);text-align:center;display:flex;flex-direction:column;gap:clamp(14px,2.5vw,20px);align-items:center">
+      
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSedPzxbkred2XB-M66-YGM3oKlpcLbOlGh-mNP8nfDB1DiXHw/viewform" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;text-align:center;padding:16px clamp(28px,8vw,48px);border-radius:14px;font-size:clamp(16px,4.4vw,18px);display:inline-block;"><span class="k">無料体験を</span><span class="k">申し込む →</span></a>
+    </div>
   </section>
 
-  <section style="max-width:640px;margin:80px auto 0;padding:0 24px;text-align:center;">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSedPzxbkred2XB-M66-YGM3oKlpcLbOlGh-mNP8nfDB1DiXHw/viewform" target="_blank" rel="noreferrer noopener" style="display:inline-block;background:#5aa59c;color:#fff;font-weight:700;padding:18px 48px;border-radius:8px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-size:16px;box-shadow:0 4px 16px oklch(60% 0.08 165 / 0.35);">無料体験を申し込む</a>
-  </section>
-
-  <footer style="border-top:1px solid oklch(90% 0.01 60);padding:36px 24px;text-align:center;margin-top:80px;">
-    <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:15px;margin-bottom:10px;">Personal Training E.S</div>
-    <nav style="display:flex;gap:18px;justify-content:center;font-size:12px;margin-bottom:16px;flex-wrap:wrap;">
-      <a href="index.html" style="color:oklch(45% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(45% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(45% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="access.html" style="color:oklch(45% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(45% 0.01 60);text-decoration:none;">Q&A</a>
-      <a href="contact.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONTACT</a>
-    </nav>
-    <div style="font-size:11px;color:oklch(55% 0.01 60);">© 2026 Personal Training E.S.</div>
+  <footer style="background:#101010;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="max-width:1160px;margin:0 auto;padding:clamp(40px,8vw,64px) clamp(16px,4vw,24px) 36px;display:flex;flex-wrap:wrap;gap:36px">
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:48px;width:auto;align-self:flex-start">
+        <div style="font-size:14px;color:#bdb9b2">〒243-0815<br><span style="white-space:nowrap"><span class="k">神奈川県厚木市妻</span><span class="k">田西2-19-1</span></span><br><span style="white-space:nowrap"><span class="k">メゾン秋</span><span class="k">本101</span></span></div>
+        <div style="font-size:14px;color:#bdb9b2">TEL 070-9153-3110<br>MAIL ptes3110@gmail.com</div>
+        <div style="font-size:14px;color:#bdb9b2"><span class="k">月・火・木・</span><span class="k">金 10:00〜20:00</span><br><span class="k">土曜 09:00〜18:00</span><br><span class="k">定休日：</span><span class="k">日・祝・水</span></div>
+      </div>
+      <nav aria-label="フッターメニュー" style="flex:1 1 260px;display:flex;flex-wrap:wrap;gap:12px 28px;align-content:flex-start;font-size:14px">
+        <a href="index.html" style="color:#f0ece4;text-decoration:none">HOME</a>
+        <a href="concept.html" style="color:#f0ece4;text-decoration:none">CONCEPT</a>
+        <a href="service.html" style="color:#f0ece4;text-decoration:none">SERVICE</a>
+        <a href="jibun-tr.html" style="color:#f0ece4;text-decoration:none"><span class="k">じぶとれ</span></a>
+        <a href="training.html" style="color:#f0ece4;text-decoration:none">TRAINING</a>
+        <a href="blog.html" style="color:#f0ece4;text-decoration:none">BLOG</a>
+        <a href="access.html" style="color:#f0ece4;text-decoration:none">ACCESS</a>
+        <a href="qa.html" style="color:#f0ece4;text-decoration:none">Q&amp;A</a>
+        <a href="contact.html" style="color:#f0ece4;text-decoration:none">CONTACT</a>
+        <a href="https://www.instagram.com/personal_training_e.s/" style="color:#f0ece4;text-decoration:none">Instagram</a>
+      </nav>
+    </div>
+    <div style="max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,24px) 28px;font-size:12px;color:#8d8a84">© 2026 Personal Training E.S.</div>
   </footer>
 </div>
 </x-dc>

@@ -25,103 +25,179 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; background: oklch(97% 0 0); }
-  * { box-sizing: border-box; }
-  a { transition: opacity 0.15s; }
-  a:hover { opacity: 0.65; }
-  .site-header { position: sticky; top: 0; z-index: 200; background: oklch(97% 0 0); border-bottom: 1px solid oklch(92% 0.01 60); }
-  .site-header-inner { display:flex; align-items:center; justify-content:space-between; max-width:1140px; margin:0 auto; padding:16px 24px; gap:24px; }
-  .site-nav-desktop { display:flex; align-items:center; gap:20px; font-size:13px; flex-wrap:wrap; }
-  .site-nav-cta { background:#5aa59c; color:#fff; text-decoration:none; font-weight:700; padding:8px 18px; border-radius:20px; display:inline-block; }
-  .site-nav-cta:hover { opacity:0.85; }
-  .menu-toggle-btn { display:none; border:none; background:transparent; cursor:pointer; padding:6px; }
-  .mobile-nav-panel { display:none; }
-  @media (max-width: 760px) {
-    .site-header-inner { padding:14px 20px; }
-    .site-nav-desktop { display:none; }
-    .menu-toggle-btn { display:flex; align-items:center; justify-content:center; }
-    .mobile-nav-panel { position:fixed; inset:0; background:oklch(97% 0 0); z-index:300; flex-direction:column; padding:88px 32px 32px; gap:4px; transform:translateX(100%); transition:transform 0.25s ease; overflow-y:auto; }
-    .mobile-nav-panel.is-open { display:flex; transform:translateX(0); }
-    .mobile-nav-panel a:not(.site-nav-cta) { padding:16px 4px; font-size:16px; border-bottom:1px solid oklch(92% 0.01 60); text-decoration:none; }
-    .mobile-nav-close { position:absolute; top:24px; right:24px; width:36px; height:36px; border:none; background:transparent; font-size:28px; line-height:1; cursor:pointer; color:oklch(30% 0.01 60); }
-  }
+body{margin:0;background:#151515}
+a{color:#5cc2a6}a:hover{color:#8fe0c8}
+.k{display:inline-block;max-width:100%}
+.navlink{color:#f0ece4;text-decoration:none;font-size:14px;letter-spacing:.04em;padding:10px 4px}
+.navlink:hover{color:#5cc2a6}
+.btn{transition:transform .15s ease, filter .15s ease}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.post{transition:transform .15s ease, border-color .15s ease}
+.post:hover{transform:translateY(-2px);border-color:rgba(92,194,166,.5) !important}
+.k{text-wrap:wrap}
+h1,h2,h3{text-wrap:balance}
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.gal img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 40%;border-radius:14px;background:#222}
+.gal.on{grid-template-columns:1fr 1fr}
+.gal.on img{aspect-ratio:4/3}
+.gal.on img:first-child{grid-row:span 2;aspect-ratio:auto;align-self:stretch;height:auto;contain:size;object-position:50% 38%}
+.gal.three{grid-template-columns:repeat(3,1fr);gap:8px}
+.gl{margin:clamp(24px,5vw,36px) 0 12px;font-size:13px;letter-spacing:.14em;color:#5cc2a6;font-weight:700}
+@media (min-width:760px){.gal{grid-template-columns:repeat(3,1fr);gap:14px}.gal.three{gap:14px}}
+.onw{max-width:760px;margin:0 auto}
+p,li,blockquote{text-wrap:pretty}
+.clamp3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.site-header{position:sticky;top:0;z-index:200;background:rgba(21,21,21,.92);border-bottom:1px solid rgba(255,255,255,.08)}
+.menu-toggle-btn{display:none;border:none;background:transparent;cursor:pointer;padding:6px}
+.mobile-nav-panel{display:none}
+@media (max-width:820px){
+  .navlinks{display:none !important}
+  .menu-toggle-btn{display:flex;align-items:center;justify-content:center}
+  .mobile-nav-panel{position:fixed;inset:0;background:#151515;z-index:300;flex-direction:column;padding:88px 32px 32px;gap:4px;transform:translateX(100%);transition:transform .25s ease;overflow-y:auto}
+  .mobile-nav-panel.is-open{display:flex;transform:translateX(0)}
+  .mobile-nav-panel a{padding:16px 4px;font-size:16px;border-bottom:1px solid rgba(255,255,255,.1);text-decoration:none;color:#f0ece4}
+  .mobile-nav-panel a.panel-cta{margin-top:12px;border-bottom:none;background:#5cc2a6;color:#0d1a17;font-weight:700;text-align:center;border-radius:999px;padding:14px 20px}
+  .mobile-nav-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border:none;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#f0ece4}
+}
 </style>
 </helmet>
-<div data-screen-label="ACCESS" style="font-family:'Noto Sans JP',sans-serif;color:oklch(22% 0.01 60);background:oklch(97% 0 0);min-height:100vh;">
+
+<div style="background:#151515;color:#f0ece4;font-family:'Zen Maru Gothic','Hiragino Maru Gothic Pro',sans-serif;line-height:1.8;overflow-x:clip">
+
   <header class="site-header">
-    <div class="site-header-inner">
-      <a href="index.html" style="text-decoration:none;color:oklch(22% 0.01 60);display:flex;flex-direction:column;">
-        <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.02em;">Personal Training E.S</span>
-        <span style="font-size:11px;color:oklch(45% 0.01 60);letter-spacing:0.05em;">三日坊主さん専門パーソナルジム</span>
+    <div style="max-width:1160px;margin:0 auto;padding:10px clamp(16px,4vw,24px);display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <a href="index.html" aria-label="Personal Training E.S ホーム" style="display:flex;align-items:center">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:40px;width:auto;display:block">
       </a>
-      <nav class="site-nav-desktop">
-      <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="access.html" style="color:#5aa59c;text-decoration:none;font-weight:700;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
-      <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-      <a href="trial.html" class="site-nav-cta">TRIAL</a>
+      <nav class="navlinks" aria-label="メインメニュー" style="display:flex;align-items:center;gap:24px">
+        <a class="navlink" href="service.html">SERVICE</a>
+        <a class="navlink" href="jibun-tr.html"><span class="k">じぶとれ</span></a>
+        <a class="navlink" href="blog.html">BLOG</a>
+        <a class="navlink" href="access.html">ACCESS</a>
       </nav>
-      <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(22% 0.01 60)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
+      <div style="display:flex;align-items:center;gap:6px">
+        <a class="btn" href="trial.html" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;font-size:14px;padding:10px 20px;border-radius:999px;white-space:nowrap"><span class="k">無料体験</span></a>
+        <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f0ece4" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </header>
   <div class="mobile-nav-panel" id="mobile-nav-panel">
     <button type="button" class="mobile-nav-close" data-menu-close aria-label="閉じる">&times;</button>
-    <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-    <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
-    <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-    <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
-    <a href="access.html" style="color:#5aa59c;text-decoration:none;font-weight:700;">ACCESS</a>
-    <a href="qa.html" style="color:oklch(35% 0.01 60);text-decoration:none;">Q&amp;A</a>
-    <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-    <a href="trial.html" class="site-nav-cta" style="text-align:center;margin-top:8px;">TRIAL</a>
+    <a href="index.html">HOME</a>
+    <a href="concept.html">CONCEPT</a>
+    <a href="service.html">SERVICE</a>
+    <a href="jibun-tr.html">じぶとれ</a>
+    <a href="training.html">TRAINING</a>
+    <a href="blog.html">BLOG</a>
+    <a href="access.html" style="color:#5cc2a6;font-weight:700">ACCESS</a>
+    <a href="qa.html">Q&amp;A</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="trial.html" class="panel-cta">無料体験</a>
   </div>
 
-  <section style="max-width:700px;margin:40px auto 0;padding:0 24px;">
-    <div style="text-align:center;margin-bottom:10px;"><h1 style="font-family:'Zen Maru Gothic',sans-serif;font-size:24px;font-weight:900;margin:0 0 10px;">店舗情報</h1><div style="font-size:12px;color:#5aa59c;letter-spacing:0.15em;font-weight:700;">ACCESS</div></div>
-    <hr style="border:none;border-top:1px solid oklch(88% 0.01 60);margin:24px 0 40px;">
-    <div style="position:relative;width:100%;aspect-ratio:3/2;margin-bottom:28px;border-radius:8px;overflow:hidden;"><img src="images/IMG_0491-1200x800.jpg" alt="ジム内観" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.visibility='hidden'"></div>
-    <div style="background:#fff;border-radius:16px;box-shadow:0 2px 16px oklch(0% 0 0 / 0.06);padding:8px 24px;">
-    <table style="width:100%;font-size:14px;border-collapse:collapse;">
-      <tr style="border-bottom:1px solid oklch(90% 0.01 60);"><td style="padding:16px 0;width:110px;color:oklch(45% 0.01 60);vertical-align:top;">名称</td><td style="padding:16px 0;">Personal Training E.S<span style="white-space:nowrap;">（パーソナルトレーニングエス）</span></td></tr>
-      <tr style="border-bottom:1px solid oklch(90% 0.01 60);"><td style="padding:16px 0;color:oklch(45% 0.01 60);vertical-align:top;">住所</td><td style="padding:16px 0;">〒243-0815 神奈川県厚木市妻田西2－19－1 メゾン秋本101</td></tr>
-      <tr style="border-bottom:1px solid oklch(90% 0.01 60);"><td style="padding:16px 0;color:oklch(45% 0.01 60);vertical-align:top;">営業時間</td><td style="padding:16px 0;">月・火・木・金 10:00〜20:00<span style="white-space:nowrap;">（最終受付19:00）</span><br>土曜 09:00〜18:00<span style="white-space:nowrap;">（最終受付17:00）</span><br>定休日：日・祝・水</td></tr>
-      <tr style="border-bottom:1px solid oklch(90% 0.01 60);"><td style="padding:16px 0;color:oklch(45% 0.01 60);vertical-align:top;">連絡先</td><td style="padding:16px 0;">TEL：070-9153-3110<br>MAIL：ptes3110@gmail.com</td></tr>
-      <tr><td style="padding:16px 0;color:oklch(45% 0.01 60);vertical-align:top;">駐車場</td><td style="padding:16px 0;">無料駐車場有り。<br>徒歩1分の場所に無料でご利用いただける駐車場がございます。検索で<b>「コーポ中村」</b>さんを検索して頂くとわかりやすいかと思います。<br><b>※駐車場はコーポ中村さんの隣の駐車場となります。</b>
-        <div style="margin-top:14px;max-width:280px;border-radius:8px;overflow:hidden;border:1px solid oklch(90% 0.01 60);"><img src="images/371f48f63b5ce2a87a9f56011b9984ab-1-800x323.png" alt="駐車場写真" style="display:block;width:100%;height:auto;"></div>
-      </td></tr>
-    </table>
+  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(48px,9vw,88px) clamp(16px,4vw,24px) clamp(8px,2vw,16px);text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center">
+      <div style="font-size:12px;letter-spacing:.25em;color:#5cc2a6;font-weight:700">ACCESS</div>
+      <h1 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(24px,5.8vw,42px);line-height:1.5;color:#faf8f5"><span class="k">店舗情報</span></h1>
+      
+    </div>
+  </section>  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(32px,6vw,56px) clamp(16px,4vw,24px) 24px">
+      <img src="images/IMG_0491-1200x800.jpg" alt="ジム内観" style="display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:20px;border:1px solid rgba(255,255,255,.1)">
+    </div>
+  </section>  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:16px clamp(16px,4vw,24px) 24px">
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);padding-top:8px;padding-bottom:8px">
+        <div style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08)">
+          <div style="flex:0 0 96px;font-size:14px;color:#5cc2a6;font-weight:700"><span class="k">名称</span></div>
+          <div style="flex:1 1 240px;font-size:15px;color:#f0ece4"><span class="k">Personal Training E.S</span><span class="k">（パーソナルトレーニングエス）</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08)">
+          <div style="flex:0 0 96px;font-size:14px;color:#5cc2a6;font-weight:700"><span class="k">住所</span></div>
+          <div style="flex:1 1 240px;font-size:15px;color:#f0ece4">〒243-0815<br><span style="white-space:nowrap"><span class="k">神奈川県厚木市妻</span><span class="k">田西2－19－1</span></span><br><span style="white-space:nowrap"><span class="k">メゾン秋</span><span class="k">本101</span></span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08)">
+          <div style="flex:0 0 96px;font-size:14px;color:#5cc2a6;font-weight:700"><span class="k">営業時間</span></div>
+          <div style="flex:1 1 240px;font-size:15px;color:#f0ece4"><span style="white-space:nowrap"><span class="k">月・火・木・</span><span class="k">金 10:00〜20:00</span></span> <span style="white-space:nowrap"><span class="k">（最終</span><span class="k">受付19:00）</span></span><br><span style="white-space:nowrap"><span class="k">土曜 09:00〜18:00</span></span> <span style="white-space:nowrap"><span class="k">（最終</span><span class="k">受付17:00）</span></span><br><span class="k">定休日：</span><span class="k">日・祝・水</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08)">
+          <div style="flex:0 0 96px;font-size:14px;color:#5cc2a6;font-weight:700"><span class="k">連絡先</span></div>
+          <div style="flex:1 1 240px;font-size:15px;color:#f0ece4"><span class="k">TEL：</span><a href="tel:07091533110" style="color:#f0ece4">070-9153-3110</a><br><span class="k">MAIL：</span><a href="mailto:ptes3110@gmail.com" style="color:#f0ece4">ptes3110@gmail.com</a></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:18px 0">
+          <div style="flex:0 0 96px;font-size:14px;color:#5cc2a6;font-weight:700"><span class="k">駐車場</span></div>
+          <div style="flex:1 1 240px;font-size:15px;color:#f0ece4">
+            <strong><span class="k">無料駐車場有り。</span></strong><br>
+            <span class="k">徒歩1分の</span><span class="k">場所に</span><span class="k">無料で</span><span class="k">ご利用いただける</span><span class="k">駐車場が</span><span class="k">ございます。検索で</span><strong><span class="k">「コーポ中村」</span></strong><span class="k">さんを</span><span class="k">検索して</span><span class="k">頂くと</span><span class="k">わかりやすいかと</span><span class="k">思います。</span><br>
+            <strong><span class="k">※駐車場は</span><br><span class="k">コーポ中村さんの</span><span class="k">隣の</span><span class="k">駐車場と</span><span class="k">なります。</span></strong>
+            <img loading="lazy" decoding="async" src="images/371f48f63b5ce2a87a9f56011b9984ab-1-800x323.png" alt="駐車場の写真" style="display:block;margin-top:14px;width:100%;max-width:360px;border-radius:12px;border:1px solid rgba(255,255,255,.12)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(48px,8vw,80px) clamp(16px,4vw,24px) 24px">
+      <div style="text-align:center;display:flex;flex-direction:column;gap:10px;margin-bottom:clamp(24px,5vw,40px)">
+        <div style="font-size:12px;letter-spacing:.25em;color:#5cc2a6;font-weight:700">GYM</div>
+        <h2 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(21px,5.4vw,34px);line-height:1.5;color:#faf8f5"><span class="k">トレーニングの様子</span></h2>
+      </div>
+      <div class="gl" style="margin-top:0"><span class="k">ジム</span></div>
+      <div class="gal">
+        <img src="images/gym-squat.jpg" alt="スクワットのトレーニング風景" loading="lazy" decoding="async">
+        <img src="images/gym-pulldown.jpg" alt="ラットプルダウンのトレーニング風景" loading="lazy" decoding="async">
+        <img src="images/IMG_0023-800x1423.jpg" alt="トレーニング風景" loading="lazy" decoding="async">
+        <img src="images/IMG_0024-800x1417.jpg" alt="トレーニング風景" loading="lazy" decoding="async">
+        <img src="images/gym-row.jpg" alt="シーテッドロウのトレーニング風景" loading="lazy" decoding="async">
+        <img src="images/IMG_0025-800x1421.jpg" alt="トレーニング風景" loading="lazy" decoding="async">
+      </div>
+      <div class="gal three" style="margin-top:10px">
+        <img src="images/gym-legcurl.jpg" alt="レッグカールのトレーニング風景" loading="lazy" decoding="async">
+          <img src="images/gym-stepback.jpg" alt="ステップ動作のトレーニング風景" loading="lazy" decoding="async">
+          <img src="images/gym-step.jpg" alt="ステップ台を使ったトレーニング風景" loading="lazy" decoding="async">
+      </div>
+      <div class="onw">
+      <div class="gl"><span class="k">オンライン</span></div>
+      <div class="gal on">
+        <img src="images/online-lunge.jpg" alt="オンラインでのランジのセッション風景" loading="lazy" decoding="async">
+          <img src="images/online-squat.jpg" alt="オンラインでのスクワットのセッション風景" loading="lazy" decoding="async" style="object-position:50% 45%">
+          <img src="images/online-prone.jpg" alt="オンラインでの背中のトレーニングのセッション風景" loading="lazy" decoding="async" style="object-position:50% 70%">
+      </div>
+      </div>
+    </div>
+  </section>  <section>
+    <div style="max-width:880px;margin:0 auto;padding:clamp(56px,10vw,96px) clamp(16px,4vw,24px);text-align:center;display:flex;flex-direction:column;gap:clamp(14px,2.5vw,20px);align-items:center">
+      
+      <a class="btn" href="trial.html" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;text-align:center;padding:16px clamp(28px,8vw,48px);border-radius:14px;font-size:clamp(16px,4.4vw,18px);display:inline-block;"><span class="k">無料体験に</span><span class="k">申し込む →</span></a>
     </div>
   </section>
 
-  <section style="max-width:640px;margin:60px auto 0;padding:0 24px;text-align:center;">
-    <a href="trial.html" style="display:inline-block;background:#5aa59c;color:#fff;font-weight:700;padding:18px 48px;border-radius:8px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-size:16px;box-shadow:0 4px 16px oklch(60% 0.08 165 / 0.35);">無料体験に申し込む</a>
-  </section>
-
-  <footer style="border-top:1px solid oklch(90% 0.01 60);padding:36px 24px;text-align:center;margin-top:80px;">
-    <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:15px;margin-bottom:10px;">Personal Training E.S</div>
-    <nav style="display:flex;gap:18px;justify-content:center;font-size:12px;margin-bottom:16px;flex-wrap:wrap;">
-      <a href="index.html" style="color:oklch(45% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(45% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(45% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="access.html" style="color:oklch(45% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(45% 0.01 60);text-decoration:none;">Q&amp;A</a>
-      <a href="contact.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONTACT</a>
-    </nav>
-    <div style="font-size:11px;color:oklch(55% 0.01 60);">© 2026 Personal Training E.S.</div>
+  <footer style="background:#101010;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="max-width:1160px;margin:0 auto;padding:clamp(40px,8vw,64px) clamp(16px,4vw,24px) 36px;display:flex;flex-wrap:wrap;gap:36px">
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:48px;width:auto;align-self:flex-start">
+        <div style="font-size:14px;color:#bdb9b2">〒243-0815<br><span style="white-space:nowrap"><span class="k">神奈川県厚木市妻</span><span class="k">田西2-19-1</span></span><br><span style="white-space:nowrap"><span class="k">メゾン秋</span><span class="k">本101</span></span></div>
+        <div style="font-size:14px;color:#bdb9b2">TEL 070-9153-3110<br>MAIL ptes3110@gmail.com</div>
+        <div style="font-size:14px;color:#bdb9b2"><span class="k">月・火・木・</span><span class="k">金 10:00〜20:00</span><br><span class="k">土曜 09:00〜18:00</span><br><span class="k">定休日：</span><span class="k">日・祝・水</span></div>
+      </div>
+      <nav aria-label="フッターメニュー" style="flex:1 1 260px;display:flex;flex-wrap:wrap;gap:12px 28px;align-content:flex-start;font-size:14px">
+        <a href="index.html" style="color:#f0ece4;text-decoration:none">HOME</a>
+        <a href="concept.html" style="color:#f0ece4;text-decoration:none">CONCEPT</a>
+        <a href="service.html" style="color:#f0ece4;text-decoration:none">SERVICE</a>
+        <a href="jibun-tr.html" style="color:#f0ece4;text-decoration:none"><span class="k">じぶとれ</span></a>
+        <a href="training.html" style="color:#f0ece4;text-decoration:none">TRAINING</a>
+        <a href="blog.html" style="color:#f0ece4;text-decoration:none">BLOG</a>
+        <a href="access.html" style="color:#f0ece4;text-decoration:none">ACCESS</a>
+        <a href="qa.html" style="color:#f0ece4;text-decoration:none">Q&amp;A</a>
+        <a href="contact.html" style="color:#f0ece4;text-decoration:none">CONTACT</a>
+        <a href="https://www.instagram.com/personal_training_e.s/" style="color:#f0ece4;text-decoration:none">Instagram</a>
+      </nav>
+    </div>
+    <div style="max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,24px) 28px;font-size:12px;color:#8d8a84">© 2026 Personal Training E.S.</div>
   </footer>
 </div>
 </x-dc>

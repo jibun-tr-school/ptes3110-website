@@ -25,119 +25,136 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; background: oklch(97% 0 0); }
-  * { box-sizing: border-box; }
-  a { transition: opacity 0.15s; }
-  a:hover { opacity: 0.65; }
-  .site-header { position: sticky; top: 0; z-index: 200; background: oklch(97% 0 0); border-bottom: 1px solid oklch(92% 0.01 60); }
-  .site-header-inner { display:flex; align-items:center; justify-content:space-between; max-width:1140px; margin:0 auto; padding:16px 24px; gap:24px; }
-  .site-nav-desktop { display:flex; align-items:center; gap:20px; font-size:13px; flex-wrap:wrap; }
-  .site-nav-cta { background:#5aa59c; color:#fff; text-decoration:none; font-weight:700; padding:8px 18px; border-radius:20px; display:inline-block; }
-  .site-nav-cta:hover { opacity:0.85; }
-  .menu-toggle-btn { display:none; border:none; background:transparent; cursor:pointer; padding:6px; }
-  .mobile-nav-panel { display:none; }
-  @media (max-width: 760px) {
-    .site-header-inner { padding:14px 20px; }
-    .site-nav-desktop { display:none; }
-    .menu-toggle-btn { display:flex; align-items:center; justify-content:center; }
-    .mobile-nav-panel { position:fixed; inset:0; background:oklch(97% 0 0); z-index:300; flex-direction:column; padding:88px 32px 32px; gap:4px; transform:translateX(100%); transition:transform 0.25s ease; overflow-y:auto; }
-    .mobile-nav-panel.is-open { display:flex; transform:translateX(0); }
-    .mobile-nav-panel a:not(.site-nav-cta) { padding:16px 4px; font-size:16px; border-bottom:1px solid oklch(92% 0.01 60); text-decoration:none; }
-    .mobile-nav-close { position:absolute; top:24px; right:24px; width:36px; height:36px; border:none; background:transparent; font-size:28px; line-height:1; cursor:pointer; color:oklch(30% 0.01 60); }
-  }
+body{margin:0;background:#151515}
+a{color:#5cc2a6}a:hover{color:#8fe0c8}
+.k{display:inline-block;max-width:100%}
+.navlink{color:#f0ece4;text-decoration:none;font-size:14px;letter-spacing:.04em;padding:10px 4px}
+.navlink:hover{color:#5cc2a6}
+.btn{transition:transform .15s ease, filter .15s ease}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.post{transition:transform .15s ease, border-color .15s ease}
+.post:hover{transform:translateY(-2px);border-color:rgba(92,194,166,.5) !important}
+.k{text-wrap:wrap}
+h1,h2,h3{text-wrap:balance}
+p,li,blockquote{text-wrap:pretty}
+.clamp3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.site-header{position:sticky;top:0;z-index:200;background:rgba(21,21,21,.92);border-bottom:1px solid rgba(255,255,255,.08)}
+.menu-toggle-btn{display:none;border:none;background:transparent;cursor:pointer;padding:6px}
+.mobile-nav-panel{display:none}
+@media (max-width:820px){
+  .navlinks{display:none !important}
+  .menu-toggle-btn{display:flex;align-items:center;justify-content:center}
+  .mobile-nav-panel{position:fixed;inset:0;background:#151515;z-index:300;flex-direction:column;padding:88px 32px 32px;gap:4px;transform:translateX(100%);transition:transform .25s ease;overflow-y:auto}
+  .mobile-nav-panel.is-open{display:flex;transform:translateX(0)}
+  .mobile-nav-panel a{padding:16px 4px;font-size:16px;border-bottom:1px solid rgba(255,255,255,.1);text-decoration:none;color:#f0ece4}
+  .mobile-nav-panel a.panel-cta{margin-top:12px;border-bottom:none;background:#5cc2a6;color:#0d1a17;font-weight:700;text-align:center;border-radius:999px;padding:14px 20px}
+  .mobile-nav-close{position:absolute;top:24px;right:24px;width:36px;height:36px;border:none;background:transparent;font-size:28px;line-height:1;cursor:pointer;color:#f0ece4}
+}
 </style>
 </helmet>
-<div data-screen-label="Q&A" style="font-family:'Noto Sans JP',sans-serif;color:oklch(22% 0.01 60);background:oklch(97% 0 0);min-height:100vh;">
+
+<div style="background:#151515;color:#f0ece4;font-family:'Zen Maru Gothic','Hiragino Maru Gothic Pro',sans-serif;line-height:1.8;overflow-x:clip">
+
   <header class="site-header">
-    <div class="site-header-inner">
-      <a href="index.html" style="text-decoration:none;color:oklch(22% 0.01 60);display:flex;flex-direction:column;">
-        <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.02em;">Personal Training E.S</span>
-        <span style="font-size:11px;color:oklch(45% 0.01 60);letter-spacing:0.05em;">三日坊主さん専門パーソナルジム</span>
+    <div style="max-width:1160px;margin:0 auto;padding:10px clamp(16px,4vw,24px);display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <a href="index.html" aria-label="Personal Training E.S ホーム" style="display:flex;align-items:center">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:40px;width:auto;display:block">
       </a>
-      <nav class="site-nav-desktop">
-      <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:#5aa59c;text-decoration:none;font-weight:700;">Q&amp;A</a>
-      <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-      <a href="trial.html" class="site-nav-cta">TRIAL</a>
+      <nav class="navlinks" aria-label="メインメニュー" style="display:flex;align-items:center;gap:24px">
+        <a class="navlink" href="service.html">SERVICE</a>
+        <a class="navlink" href="jibun-tr.html"><span class="k">じぶとれ</span></a>
+        <a class="navlink" href="blog.html">BLOG</a>
+        <a class="navlink" href="access.html">ACCESS</a>
       </nav>
-      <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(22% 0.01 60)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
+      <div style="display:flex;align-items:center;gap:6px">
+        <a class="btn" href="trial.html" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;font-size:14px;padding:10px 20px;border-radius:999px;white-space:nowrap"><span class="k">無料体験</span></a>
+        <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f0ece4" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </header>
   <div class="mobile-nav-panel" id="mobile-nav-panel">
     <button type="button" class="mobile-nav-close" data-menu-close aria-label="閉じる">&times;</button>
-    <a href="index.html" style="color:oklch(35% 0.01 60);text-decoration:none;">HOME</a>
-    <a href="concept.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONCEPT</a>
-    <a href="service.html" style="color:oklch(35% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-    <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(35% 0.01 60);text-decoration:none;">BLOG</a>
-    <a href="access.html" style="color:oklch(35% 0.01 60);text-decoration:none;">ACCESS</a>
-    <a href="qa.html" style="color:#5aa59c;text-decoration:none;font-weight:700;">Q&amp;A</a>
-    <a href="contact.html" style="color:oklch(35% 0.01 60);text-decoration:none;">CONTACT</a>
-    <a href="trial.html" class="site-nav-cta" style="text-align:center;margin-top:8px;">TRIAL</a>
+    <a href="index.html">HOME</a>
+    <a href="concept.html">CONCEPT</a>
+    <a href="service.html">SERVICE</a>
+    <a href="jibun-tr.html">じぶとれ</a>
+    <a href="training.html">TRAINING</a>
+    <a href="blog.html">BLOG</a>
+    <a href="access.html">ACCESS</a>
+    <a href="qa.html" style="color:#5cc2a6;font-weight:700">Q&amp;A</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="trial.html" class="panel-cta">無料体験</a>
   </div>
 
-  <section style="max-width:700px;margin:40px auto 0;padding:0 24px;text-align:center;">
-    <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-size:24px;font-weight:900;margin:0 0 10px;">よくある質問</h1>
-    <div style="font-size:12px;color:#5aa59c;letter-spacing:0.15em;font-weight:700;margin-bottom:40px;">Q&A</div>
-  </section>
-  <section style="max-width:700px;margin:0 auto;padding:0 24px;">
-    <div style="display:flex;flex-direction:column;gap:20px;">
-      <div style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;padding:20px 24px;">
-        <p style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#5aa59c;margin-bottom:10px;">Q. そもそもジムに行ったことがありませんが大丈夫ですか？</p>
-        <p style="font-size:13px;line-height:1.9;color:oklch(30% 0.01 60);">A. もちろん大丈夫です。会員様の95％はパーソナルジム未経験です。むしろ初心者の方にこそ通って頂きたいパーソナルジムです。</p>
+  <section>
+    <div style="max-width:1000px;margin:0 auto;padding:clamp(48px,9vw,88px) clamp(16px,4vw,24px) clamp(8px,2vw,16px);text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center">
+      <div style="font-size:12px;letter-spacing:.25em;color:#5cc2a6;font-weight:700">Q&amp;A</div>
+      <h1 style="margin:0;font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-weight:400;font-size:clamp(24px,5.8vw,42px);line-height:1.5;color:#faf8f5"><span class="k">よく</span><span class="k">ある質問</span></h1>
+      
+    </div>
+  </section>  <section>
+    <div style="max-width:860px;margin:0 auto;padding:clamp(32px,6vw,56px) clamp(16px,4vw,24px) 24px">
+<div style="display:flex;flex-direction:column;gap:16px">
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#5cc2a6;flex:none">Q</span><h3 style="margin:0;font-size:clamp(16px,4.4vw,18px);color:#faf8f5;line-height:1.7"><span class="k">そもそも</span><span class="k">ジムに</span><span class="k">行った</span><span class="k">ことがありませんが</span><span class="k">大丈夫ですか？</span></h3></div>
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#ffd54f;flex:none">A</span><p style="margin:0;font-size:15px;color:#d6d2cb"><span class="k">もちろん</span><span class="k">大丈夫です。</span><span class="k">会員様の</span><span class="k">95％は</span><span class="k">パーソナルジム未</span><span class="k">経験です。</span><span class="k">むしろ</span><span class="k">初心者の</span><span class="k">方にこそ</span><span class="k">通って</span><span class="k">頂きたい</span><span class="k">パーソナルジムです。</span></p></div>
       </div>
-      <div style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;padding:20px 24px;">
-        <p style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#5aa59c;margin-bottom:10px;">Q. 身体はどのくらいの期間で変化しますか？</p>
-        <p style="font-size:13px;line-height:1.9;color:oklch(30% 0.01 60);">A. 目安は3か月です。トレーニング頻度や体力などにもよりますが、ご入会頂いた30代女性の事例だと週に1回のペースで3か月で₋3㎏、8か月で₋6㎏の減量に成功し、トレーニング開始から1年経った現在もその体重をキープし続けている事例もございます。</p>
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#5cc2a6;flex:none">Q</span><h3 style="margin:0;font-size:clamp(16px,4.4vw,18px);color:#faf8f5;line-height:1.7"><span class="k">身体は</span><span class="k">どの</span><span class="k">くらいの</span><span class="k">期間で</span><span class="k">変化しますか？</span></h3></div>
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#ffd54f;flex:none">A</span><p style="margin:0;font-size:15px;color:#d6d2cb"><span class="k">目安は</span><span class="k">3か月です。</span><span class="k">トレーニング頻度や</span><span class="k">体力などにも</span><span class="k">よりますが、</span><span class="k">ご入会頂いた</span><span class="k">30代女性の</span><span class="k">事例だと</span><span class="k">週に</span><span class="k">1回の</span><span class="k">ペースで</span><span class="k">3か月で</span><span class="k">₋3㎏、</span><span class="k">8か月で</span><span class="k">₋6㎏の</span><span class="k">減量に</span><span class="k">成功し、</span><span class="k">トレーニング</span><span class="k">開始から</span><span class="k">1年</span><span class="k">経った</span><span class="k">現在も</span><span class="k">その</span><span class="k">体重を</span><span class="k">キープし続けている</span><span class="k">事例も</span><span class="k">ございます。</span></p></div>
       </div>
-      <div style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;padding:20px 24px;">
-        <p style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#5aa59c;margin-bottom:10px;">Q. 食事のアドバイスをして頂いたり出来ますか？</p>
-        <p style="font-size:13px;line-height:1.9;color:oklch(30% 0.01 60);">A. 可能です。ただ運動を習慣化するだけでなく、理想のカラダを手に入れる為のアドバイスもさせて頂きますので遠慮なくご相談ください。</p>
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#5cc2a6;flex:none">Q</span><h3 style="margin:0;font-size:clamp(16px,4.4vw,18px);color:#faf8f5;line-height:1.7"><span class="k">食事の</span><span class="k">アドバイスを</span><span class="k">して</span><span class="k">頂いたり</span><span class="k">出来ますか？</span></h3></div>
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#ffd54f;flex:none">A</span><p style="margin:0;font-size:15px;color:#d6d2cb"><span class="k">可能です。</span><span class="k">ただ</span><span class="k">運動を</span><span class="k">習慣化する</span><span class="k">だけでなく、</span><span class="k">理想の</span><span class="k">カラダを</span><span class="k">手に</span><span class="k">入れる</span><span class="k">為の</span><span class="k">アドバイスもさせて</span><span class="k">頂きますので</span><span class="k">遠慮なく</span><span class="k">ご相談ください。</span></p></div>
       </div>
-      <div style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;padding:20px 24px;">
-        <p style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#5aa59c;margin-bottom:10px;">Q. オンラインって本当に大丈夫ですか？</p>
-        <p style="font-size:13px;line-height:1.9;color:oklch(30% 0.01 60);">A. もちろん大丈夫です。トレーナーも大手オンラインパーソナルジムでの指導経験も有り、オンラインの指導だけで半年でマイナス10㎏の減量に成功した方もいらっしゃいます。ご心配な方はぜひ無料体験をお試しいただけたらと思います。</p>
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#5cc2a6;flex:none">Q</span><h3 style="margin:0;font-size:clamp(16px,4.4vw,18px);color:#faf8f5;line-height:1.7"><span class="k">オンラインって</span><span class="k">本当に</span><span class="k">大丈夫ですか？</span></h3></div>
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#ffd54f;flex:none">A</span><p style="margin:0;font-size:15px;color:#d6d2cb"><span class="k">もちろん</span><span class="k">大丈夫です。</span><span class="k">トレーナーも</span><span class="k">大手オンラインパーソナルジムでの</span><span class="k">指導経験も</span><span class="k">有り、</span><span class="k">オンラインの</span><span class="k">指導だけで</span><span class="k">半年で</span><span class="k">マイナス10㎏の</span><span class="k">減量に</span><span class="k">成功した</span><span class="k">方も</span><span class="k">いらっしゃいます。</span><span class="k">ご心配な</span><span class="k">方は</span><span class="k">ぜひ</span><span class="k">無料体験を</span><span class="k">お試しい</span><span class="k">ただけたらと</span><span class="k">思います。</span></p></div>
       </div>
-      <div style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;padding:20px 24px;">
-        <p style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#5aa59c;margin-bottom:10px;">Q. オンラインでの接続方法が心配です。</p>
-        <p style="font-size:13px;line-height:1.9;color:oklch(30% 0.01 60);">A. 接続方法もしっかりとレクチャーいたしますのでご安心ください。基本的にはGoogle Meetというアプリを使用してレッスンを行います。</p>
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#5cc2a6;flex:none">Q</span><h3 style="margin:0;font-size:clamp(16px,4.4vw,18px);color:#faf8f5;line-height:1.7"><span class="k">オンラインでの</span><span class="k">接続方法が</span><span class="k">心配です。</span></h3></div>
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#ffd54f;flex:none">A</span><p style="margin:0;font-size:15px;color:#d6d2cb"><span class="k">接続方法も</span><span class="k">しっかりと</span><span class="k">レクチャーいた</span><span class="k">しますので</span><span class="k">ご安心ください。</span><span class="k">基本的には</span><span class="k">Google Meetと</span><span class="k">いう</span><span class="k">アプリを</span><span class="k">使用して</span><span class="k">レッスンを</span><span class="k">行います。</span></p></div>
       </div>
-      <div style="background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;padding:20px 24px;">
-        <p style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#5aa59c;margin-bottom:10px;">Q. 店舗にシャワーや更衣室はありますか？</p>
-        <p style="font-size:13px;line-height:1.9;color:oklch(30% 0.01 60);">A. 衛生管理上シャワーはありませんが、簡易的な更衣室があります。汗拭きシートなどもご用意があります。お車でお越しの方はトレーニングが出来る服装で来られる方が多いです。</p>
+      <div style="background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:clamp(22px,5vw,32px);display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#5cc2a6;flex:none">Q</span><h3 style="margin:0;font-size:clamp(16px,4.4vw,18px);color:#faf8f5;line-height:1.7"><span class="k">店舗に</span><span class="k">シャワーや</span><span class="k">更衣室は</span><span class="k">ありますか？</span></h3></div>
+        <div style="display:flex;gap:12px;align-items:baseline"><span style="font-family:'Yusei Magic','Zen Maru Gothic',sans-serif;font-size:24px;color:#ffd54f;flex:none">A</span><p style="margin:0;font-size:15px;color:#d6d2cb"><span class="k">衛生管理</span><span class="k">上シャワーは</span><span class="k">ありませんが、</span><span class="k">簡易的な</span><span class="k">更衣室が</span><span class="k">あります。</span><span class="k">汗拭きシートなども</span><span class="k">ご用意が</span><span class="k">あります。</span><span class="k">お車で</span><span class="k">お越しの</span><span class="k">方は</span><span class="k">トレーニングが</span><span class="k">出来る</span><span class="k">服装で</span><span class="k">来られる</span><span class="k">方が</span><span class="k">多いです。</span></p></div>
       </div>
+</div>
+    </div>
+  </section>  <section>
+    <div style="max-width:880px;margin:0 auto;padding:clamp(56px,10vw,96px) clamp(16px,4vw,24px);text-align:center;display:flex;flex-direction:column;gap:clamp(14px,2.5vw,20px);align-items:center">
+      
+      <a class="btn" href="trial.html" style="background:#5cc2a6;color:#0d1a17;text-decoration:none;font-weight:700;text-align:center;padding:16px clamp(28px,8vw,48px);border-radius:14px;font-size:clamp(16px,4.4vw,18px);display:inline-block;"><span class="k">無料体験に</span><span class="k">申し込む →</span></a>
     </div>
   </section>
 
-  <section style="max-width:640px;margin:60px auto 0;padding:0 24px;text-align:center;">
-    <a href="trial.html" style="display:inline-block;background:#5aa59c;color:#fff;font-weight:700;padding:18px 48px;border-radius:8px;text-decoration:none;font-family:'Zen Maru Gothic',sans-serif;font-size:16px;box-shadow:0 4px 16px oklch(60% 0.08 165 / 0.35);">無料体験に申し込む</a>
-  </section>
-
-  <footer style="border-top:1px solid oklch(90% 0.01 60);padding:36px 24px;text-align:center;margin-top:80px;">
-    <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:15px;margin-bottom:10px;">Personal Training E.S</div>
-    <nav style="display:flex;gap:18px;justify-content:center;font-size:12px;margin-bottom:16px;flex-wrap:wrap;">
-      <a href="index.html" style="color:oklch(45% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="concept.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="service.html" style="color:oklch(45% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="jibun-tr.html" style="color:oklch(35% 0.01 60);text-decoration:none;">じぶとれ</a>
-      <a href="training.html" style="color:oklch(35% 0.01 60);text-decoration:none;">TRAINING</a>
-      <a href="blog.html" style="color:oklch(45% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="access.html" style="color:oklch(45% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="qa.html" style="color:oklch(45% 0.01 60);text-decoration:none;">Q&A</a>
-      <a href="contact.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONTACT</a>
-    </nav>
-    <div style="font-size:11px;color:oklch(55% 0.01 60);">© 2026 Personal Training E.S.</div>
+  <footer style="background:#101010;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="max-width:1160px;margin:0 auto;padding:clamp(40px,8vw,64px) clamp(16px,4vw,24px) 36px;display:flex;flex-wrap:wrap;gap:36px">
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+        <img src="images/logo-white.png" alt="Personal Training E.S" style="height:48px;width:auto;align-self:flex-start">
+        <div style="font-size:14px;color:#bdb9b2">〒243-0815<br><span style="white-space:nowrap"><span class="k">神奈川県厚木市妻</span><span class="k">田西2-19-1</span></span><br><span style="white-space:nowrap"><span class="k">メゾン秋</span><span class="k">本101</span></span></div>
+        <div style="font-size:14px;color:#bdb9b2">TEL 070-9153-3110<br>MAIL ptes3110@gmail.com</div>
+        <div style="font-size:14px;color:#bdb9b2"><span class="k">月・火・木・</span><span class="k">金 10:00〜20:00</span><br><span class="k">土曜 09:00〜18:00</span><br><span class="k">定休日：</span><span class="k">日・祝・水</span></div>
+      </div>
+      <nav aria-label="フッターメニュー" style="flex:1 1 260px;display:flex;flex-wrap:wrap;gap:12px 28px;align-content:flex-start;font-size:14px">
+        <a href="index.html" style="color:#f0ece4;text-decoration:none">HOME</a>
+        <a href="concept.html" style="color:#f0ece4;text-decoration:none">CONCEPT</a>
+        <a href="service.html" style="color:#f0ece4;text-decoration:none">SERVICE</a>
+        <a href="jibun-tr.html" style="color:#f0ece4;text-decoration:none"><span class="k">じぶとれ</span></a>
+        <a href="training.html" style="color:#f0ece4;text-decoration:none">TRAINING</a>
+        <a href="blog.html" style="color:#f0ece4;text-decoration:none">BLOG</a>
+        <a href="access.html" style="color:#f0ece4;text-decoration:none">ACCESS</a>
+        <a href="qa.html" style="color:#f0ece4;text-decoration:none">Q&amp;A</a>
+        <a href="contact.html" style="color:#f0ece4;text-decoration:none">CONTACT</a>
+        <a href="https://www.instagram.com/personal_training_e.s/" style="color:#f0ece4;text-decoration:none">Instagram</a>
+      </nav>
+    </div>
+    <div style="max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,24px) 28px;font-size:12px;color:#8d8a84">© 2026 Personal Training E.S.</div>
   </footer>
 </div>
 </x-dc>
