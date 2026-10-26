@@ -29,11 +29,7 @@ const STATIC_PAGES = [
   { path: '/trial-info.html', priority: '0.7' },
 ];
 
-const CATEGORY_HUES = { '習慣': 150, 'トレーニング': 230, 'ダイエット': 25, 'ジム紹介': 90 };
-function categoryStyle(name) {
-  const h = CATEGORY_HUES[name] ?? 60;
-  return { tagBg: `oklch(94% 0.05 ${h})`, tagText: `oklch(40% 0.13 ${h})` };
-}
+const ACCENT = '#5cc2a6';
 
 function esc(s) {
   return String(s ?? '')
@@ -45,6 +41,11 @@ function escAttr(s) {
   return esc(s).replace(/"/g, '&quot;');
 }
 
+// blog/ 配下のページから見た画像のパス(外部URLはそのまま、サイト内の画像だけ ../ を付ける)
+function imgSrc(image) {
+  return /^https?:/.test(image) ? image : `../${image}`;
+}
+
 function isoDate(d) {
   // articles use "2026.06.02" -> "2026-06-02"
   return String(d).replace(/\./g, '-');
@@ -53,77 +54,82 @@ function isoDate(d) {
 function renderBody(body) {
   return (body || []).map(block => {
     if (block.isH2) {
-      return `<h2 style="font-family:'Zen Maru Gothic',sans-serif;font-size:20px;font-weight:700;margin:36px 0 14px;">${esc(block.text)}</h2>`;
+      return `<h2 class="a-h2">${esc(block.text)}</h2>`;
     }
     if (block.isQuote) {
-      return `<div style="border-left:3px solid #5aa59c;background:oklch(96% 0.01 60);padding:16px 20px;margin:24px 0;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;font-size:15px;line-height:1.9;">${esc(block.text)}</div>`;
+      return `<div class="a-quote">${esc(block.text)}</div>`;
     }
     if (block.isList) {
-      const items = (block.items || []).map(i => `<li style="margin-bottom:8px;">${esc(i)}</li>`).join('\n        ');
-      return `<ul style="margin:0 0 18px;padding-left:22px;color:oklch(28% 0.01 60);">\n        ${items}\n      </ul>`;
+      const items = (block.items || []).map(i => `<li>${esc(i)}</li>`).join('\n        ');
+      return `<ul class="a-list">\n        ${items}\n      </ul>`;
     }
     if (block.isP) {
-      return `<p style="margin:0 0 18px;color:oklch(28% 0.01 60);">${esc(block.text)}</p>`;
+      return `<p class="a-p">${esc(block.text)}</p>`;
     }
     return '';
   }).join('\n      ');
 }
 
-function navLink(href, label, active) {
-  const style = active
-    ? 'color:#5aa59c;text-decoration:none;font-weight:700;'
-    : 'color:oklch(35% 0.01 60);text-decoration:none;';
-  return `<a href="${href}" style="${style}">${label}</a>`;
-}
-
+// サイト共通のダークデザインのヘッダー(記事は blog/ 配下なので、リンク・画像は ../ から始める)
 function headerHtml() {
   return `<header class="site-header">
-    <div class="site-header-inner">
-    <a href="../index.html" style="text-decoration:none;color:oklch(22% 0.01 60);display:flex;flex-direction:column;">
-      <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.02em;">Personal Training E.S</span>
-      <span style="font-size:11px;color:oklch(45% 0.01 60);letter-spacing:0.05em;">三日坊主さん専門パーソナルジム</span>
-    </a>
-    <nav class="site-nav-desktop">
-      ${navLink('../index.html', 'HOME', false)}
-      ${navLink('../concept.html', 'CONCEPT', false)}
-      ${navLink('../service.html', 'SERVICE', false)}
-      ${navLink('../blog.html', 'BLOG', true)}
-      ${navLink('../access.html', 'ACCESS', false)}
-      ${navLink('../qa.html', 'Q&amp;A', false)}
-      ${navLink('../contact.html', 'CONTACT', false)}
-      <a href="../trial.html" class="site-nav-cta">TRIAL</a>
-    </nav>
-    <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="oklch(22% 0.01 60)" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-    </button>
+    <div style="max-width:1160px;margin:0 auto;padding:10px clamp(16px,4vw,24px);display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <a href="../index.html" aria-label="Personal Training E.S ホーム" style="display:flex;align-items:center">
+        <img src="../images/logo-white.png" alt="Personal Training E.S" style="height:40px;width:auto;display:block">
+      </a>
+      <nav class="navlinks" aria-label="メインメニュー" style="display:flex;align-items:center;gap:24px">
+        <a class="navlink" href="../service.html">SERVICE</a>
+        <a class="navlink" href="../jibun-tr.html"><span class="k">じぶとれ</span></a>
+        <a class="navlink" href="../blog.html">BLOG</a>
+        <a class="navlink" href="../access.html">ACCESS</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:6px">
+        <a class="btn" href="../trial.html" style="background:${ACCENT};color:#0d1a17;text-decoration:none;font-weight:700;font-size:14px;padding:10px 20px;border-radius:999px;white-space:nowrap"><span class="k">無料体験</span></a>
+        <button type="button" class="menu-toggle-btn" data-menu-toggle aria-label="メニューを開く">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f0ece4" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </header>
   <div class="mobile-nav-panel" id="mobile-nav-panel">
     <button type="button" class="mobile-nav-close" data-menu-close aria-label="閉じる">&times;</button>
-    ${navLink('../index.html', 'HOME', false)}
-    ${navLink('../concept.html', 'CONCEPT', false)}
-    ${navLink('../service.html', 'SERVICE', false)}
-    ${navLink('../blog.html', 'BLOG', true)}
-    ${navLink('../access.html', 'ACCESS', false)}
-    ${navLink('../qa.html', 'Q&amp;A', false)}
-    ${navLink('../contact.html', 'CONTACT', false)}
-    <a href="../trial.html" class="site-nav-cta" style="text-align:center;margin-top:8px;">TRIAL</a>
+    <a href="../index.html">HOME</a>
+    <a href="../concept.html">CONCEPT</a>
+    <a href="../service.html">SERVICE</a>
+    <a href="../jibun-tr.html">じぶとれ</a>
+    <a href="../training.html">TRAINING</a>
+    <a href="../blog.html" style="color:${ACCENT};font-weight:700">BLOG</a>
+    <a href="../access.html">ACCESS</a>
+    <a href="../qa.html">Q&amp;A</a>
+    <a href="../contact.html">CONTACT</a>
+    <a href="../trial.html" class="panel-cta">無料体験</a>
   </div>`;
 }
 
 function footerHtml() {
-  return `<footer style="border-top:1px solid oklch(90% 0.01 60);padding:36px 24px;text-align:center;">
-    <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:15px;margin-bottom:10px;">Personal Training E.S</div>
-    <nav style="display:flex;gap:18px;justify-content:center;font-size:12px;margin-bottom:16px;flex-wrap:wrap;">
-      <a href="../index.html" style="color:oklch(45% 0.01 60);text-decoration:none;">HOME</a>
-      <a href="../concept.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONCEPT</a>
-      <a href="../service.html" style="color:oklch(45% 0.01 60);text-decoration:none;">SERVICE</a>
-      <a href="../blog.html" style="color:oklch(45% 0.01 60);text-decoration:none;">BLOG</a>
-      <a href="../access.html" style="color:oklch(45% 0.01 60);text-decoration:none;">ACCESS</a>
-      <a href="../qa.html" style="color:oklch(45% 0.01 60);text-decoration:none;">Q&A</a>
-      <a href="../contact.html" style="color:oklch(45% 0.01 60);text-decoration:none;">CONTACT</a>
-    </nav>
-    <div style="font-size:11px;color:oklch(55% 0.01 60);">&copy; 2026 Personal Training E.S.</div>
+  const l = (href, label) => `<a href="${href}" style="color:#f0ece4;text-decoration:none">${label}</a>`;
+  return `<footer style="background:#101010;border-top:1px solid rgba(255,255,255,.08)">
+    <div style="max-width:1160px;margin:0 auto;padding:clamp(40px,8vw,64px) clamp(16px,4vw,24px) 36px;display:flex;flex-wrap:wrap;gap:36px">
+      <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:12px">
+        <img src="../images/logo-white.png" alt="Personal Training E.S" style="height:48px;width:auto;align-self:flex-start">
+        <div style="font-size:14px;color:#bdb9b2">〒243-0815<br><span style="white-space:nowrap"><span class="k">神奈川県厚木市妻</span><span class="k">田西2-19-1</span></span><br><span style="white-space:nowrap"><span class="k">メゾン秋</span><span class="k">本101</span></span></div>
+        <div style="font-size:14px;color:#bdb9b2">TEL 070-9153-3110<br>MAIL ptes3110@gmail.com</div>
+        <div style="font-size:14px;color:#bdb9b2"><span class="k">月・火・木・</span><span class="k">金 10:00〜20:00</span><br><span class="k">土曜 09:00〜18:00</span><br><span class="k">定休日：</span><span class="k">日・祝・水</span></div>
+      </div>
+      <nav aria-label="フッターメニュー" style="flex:1 1 260px;display:flex;flex-wrap:wrap;gap:12px 28px;align-content:flex-start;font-size:14px">
+        ${l('../index.html', 'HOME')}
+        ${l('../concept.html', 'CONCEPT')}
+        ${l('../service.html', 'SERVICE')}
+        ${l('../jibun-tr.html', '<span class="k">じぶとれ</span>')}
+        ${l('../training.html', 'TRAINING')}
+        ${l('../blog.html', 'BLOG')}
+        ${l('../access.html', 'ACCESS')}
+        ${l('../qa.html', 'Q&amp;A')}
+        ${l('../contact.html', 'CONTACT')}
+        ${l('https://www.instagram.com/personal_training_e.s/', 'Instagram')}
+      </nav>
+    </div>
+    <div style="max-width:1160px;margin:0 auto;padding:0 clamp(16px,4vw,24px) 28px;font-size:12px;color:#8d8a84">&copy; 2026 Personal Training E.S.</div>
   </footer>`;
 }
 
@@ -131,25 +137,23 @@ function relatedHtml(article, all) {
   const related = all.filter(a => a.id !== article.id).slice(0, 2);
   if (!related.length) return '';
   const cards = related.map(a => {
-    const c = categoryStyle(a.category);
     const img = a.image
-      ? `<img src="../${a.image}" alt="${escAttr(a.title)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.visibility='hidden'">`
+      ? `<img src="${escAttr(imgSrc(a.image))}" alt="${escAttr(a.title)}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.visibility='hidden'">`
       : '';
-    return `<a href="${a.id}.html" style="text-decoration:none;color:inherit;">
-              <div style="aspect-ratio:16/10;position:relative;overflow:hidden;border-radius:8px;background:${c.tagBg};">${img}</div>
-              <div style="font-size:13px;font-weight:700;margin-top:8px;line-height:1.6;color:oklch(22% 0.01 60);">${esc(a.title)}</div>
+    return `<a class="rel" href="${a.id}.html">
+              <div style="aspect-ratio:16/10;position:relative;overflow:hidden;background:#222;">${img}</div>
+              <div class="rel-t">${esc(a.title)}</div>
             </a>`;
   }).join('\n            ');
   return `<div>
-        <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;">関連記事</h3>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;">
+        <h3 class="a-h3">関連記事</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
             ${cards}
         </div>
       </div>`;
 }
 
 function articleHtml(article, all) {
-  const c = categoryStyle(article.category);
   const title = article.title;
   const desc = article.excerpt || '';
   const url = `${SITE}/blog/${article.id}.html`;
@@ -158,7 +162,7 @@ function articleHtml(article, all) {
     : DEFAULT_OGP_IMAGE;
 
   const heroHtml = article.image
-    ? `<div style="width:100%;aspect-ratio:16/8;position:relative;overflow:hidden;border-radius:8px;margin-top:24px;background:${c.tagBg};"><img src="../${article.image}" alt="${escAttr(title)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.visibility='hidden'"></div>`
+    ? `<div class="a-hero"><img src="${escAttr(imgSrc(article.image))}" alt="${escAttr(title)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.visibility='hidden'"></div>`
     : '';
 
   const ld = {
@@ -197,28 +201,58 @@ function articleHtml(article, all) {
 <meta name="twitter:description" content="${escAttr(desc)}">
 <meta name="twitter:image" content="${image}">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
+<meta name="color-scheme" content="dark">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; background: oklch(97% 0 0); font-family:'Noto Sans JP',sans-serif; color:oklch(22% 0.01 60); }
   * { box-sizing: border-box; }
-  a { transition: opacity 0.15s; }
-  a:hover { opacity: 0.65; }
-  .site-header { position: sticky; top: 0; z-index: 200; background: oklch(97% 0 0); border-bottom: 1px solid oklch(92% 0.01 60); }
-  .site-header-inner { display:flex; align-items:center; justify-content:space-between; max-width:1140px; margin:0 auto; padding:16px 24px; gap:24px; }
-  .site-nav-desktop { display:flex; align-items:center; gap:20px; font-size:13px; flex-wrap:wrap; }
-  .site-nav-cta { background:#5aa59c; color:#fff; text-decoration:none; font-weight:700; padding:8px 18px; border-radius:20px; display:inline-block; }
-  .site-nav-cta:hover { opacity:0.85; }
+  body { margin:0; background:#151515; color:#f0ece4; font-family:'Zen Maru Gothic','Hiragino Maru Gothic Pro',sans-serif; line-height:1.8; overflow-x:clip; }
+  a { color:${ACCENT}; }
+  img { max-width:100%; }
+  .k { display:inline-block; max-width:100%; }
+  .site-header { position:sticky; top:0; z-index:200; background:rgba(21,21,21,.92); border-bottom:1px solid rgba(255,255,255,.08); }
+  .navlink { color:#f0ece4; text-decoration:none; font-size:14px; letter-spacing:.04em; padding:10px 4px; }
+  .navlink:hover { color:${ACCENT}; }
+  .btn { transition:transform .15s ease, filter .15s ease; }
+  .btn:hover { filter:brightness(1.1); transform:translateY(-1px); }
   .menu-toggle-btn { display:none; border:none; background:transparent; cursor:pointer; padding:6px; }
   .mobile-nav-panel { display:none; }
-  @media (max-width: 760px) {
-    .site-header-inner { padding:14px 20px; }
-    .site-nav-desktop { display:none; }
+  /* 記事 */
+  .a-main { max-width:720px; margin:0 auto; padding:28px clamp(16px,4vw,24px) 80px; }
+  .a-crumb { font-size:12px; color:#a8a49d; margin-bottom:20px; }
+  .a-crumb a { color:${ACCENT}; text-decoration:none; }
+  .a-meta { display:flex; align-items:center; gap:10px; margin-bottom:14px; font-size:12px; }
+  .a-tag { color:#0d1a17; background:${ACCENT}; padding:2px 12px; border-radius:999px; font-weight:700; white-space:nowrap; }
+  .a-date { color:#a8a49d; }
+  .a-title { font-family:'Yusei Magic','Zen Maru Gothic',sans-serif; font-size:clamp(24px,5.6vw,32px); font-weight:400; line-height:1.55; margin:0 0 24px; color:#faf8f5; text-wrap:balance; word-break:auto-phrase; }
+  .a-hero { width:100%; aspect-ratio:16/9; position:relative; overflow:hidden; border-radius:18px; background:#222; border:1px solid rgba(255,255,255,.08); }
+  .a-body { font-size:15px; line-height:2; margin-top:32px; line-break:strict; }
+  .a-h2 { font-family:'Yusei Magic','Zen Maru Gothic',sans-serif; font-size:clamp(19px,4.6vw,22px); font-weight:400; line-height:1.6; margin:44px 0 14px; padding-bottom:10px; color:#faf8f5; border-bottom:1px solid rgba(255,255,255,.12); text-wrap:balance; word-break:auto-phrase; }
+  .a-p { margin:0 0 18px; color:#d9d5cd; text-wrap:pretty; word-break:auto-phrase; }
+  .a-list { margin:0 0 18px; padding-left:22px; color:#d9d5cd; }
+  .a-list li { margin-bottom:8px; text-wrap:pretty; word-break:auto-phrase; }
+  .a-quote { border-left:3px solid ${ACCENT}; background:#1a1a1a; border-radius:0 12px 12px 0; padding:16px 20px; margin:24px 0; font-weight:700; font-size:15px; line-height:1.9; color:#faf8f5; text-wrap:pretty; word-break:auto-phrase; }
+  .a-cta { display:block; text-align:center; background:${ACCENT}; color:#0d1a17; font-weight:700; padding:16px 20px; border-radius:999px; text-decoration:none; margin:44px 0; transition:transform .15s ease, filter .15s ease; }
+  .a-cta:hover { filter:brightness(1.1); transform:translateY(-1px); }
+  .a-author { display:flex; gap:20px; align-items:flex-start; background:#1a1a1a; border:1px solid rgba(255,255,255,.1); border-radius:18px; padding:24px; margin-bottom:44px; }
+  .a-author img { width:76px; height:76px; flex-shrink:0; object-fit:cover; border-radius:50%; }
+  .a-author .lbl { font-size:11px; color:#a8a49d; margin-bottom:4px; }
+  .a-author .nm { font-weight:700; font-size:16px; margin-bottom:4px; color:#faf8f5; }
+  .a-author .nm span { font-size:11px; font-weight:400; margin-left:6px; color:#a8a49d; white-space:nowrap; }
+  .a-author p { font-size:13px; color:#bdb9b2; line-height:1.8; margin:0; text-wrap:pretty; word-break:auto-phrase; }
+  .a-h3 { font-family:'Yusei Magic','Zen Maru Gothic',sans-serif; font-size:18px; font-weight:400; margin:0 0 16px; color:#faf8f5; }
+  .rel { display:block; text-decoration:none; color:inherit; background:#1a1a1a; border:1px solid rgba(255,255,255,.1); border-radius:14px; overflow:hidden; transition:transform .15s ease, border-color .15s ease; }
+  .rel:hover { transform:translateY(-2px); border-color:rgba(92,194,166,.5); }
+  .rel-t { font-size:13px; font-weight:700; padding:12px 14px 14px; line-height:1.7; color:#faf8f5; text-wrap:pretty; word-break:auto-phrase; }
+  @media (max-width: 820px) {
+    .navlinks { display:none !important; }
     .menu-toggle-btn { display:flex; align-items:center; justify-content:center; }
-    .mobile-nav-panel { position:fixed; inset:0; background:oklch(97% 0 0); z-index:300; flex-direction:column; padding:88px 32px 32px; gap:4px; transform:translateX(100%); transition:transform 0.25s ease; overflow-y:auto; }
+    .mobile-nav-panel { position:fixed; inset:0; background:#151515; z-index:300; flex-direction:column; padding:88px 32px 32px; gap:4px; transform:translateX(100%); transition:transform .25s ease; overflow-y:auto; }
     .mobile-nav-panel.is-open { display:flex; transform:translateX(0); }
-    .mobile-nav-panel a:not(.site-nav-cta) { padding:16px 4px; font-size:16px; border-bottom:1px solid oklch(92% 0.01 60); text-decoration:none; }
-    .mobile-nav-close { position:absolute; top:24px; right:24px; width:36px; height:36px; border:none; background:transparent; font-size:28px; line-height:1; cursor:pointer; color:oklch(30% 0.01 60); }
+    .mobile-nav-panel a { padding:16px 4px; font-size:16px; border-bottom:1px solid rgba(255,255,255,.1); text-decoration:none; color:#f0ece4; }
+    .mobile-nav-panel a.panel-cta { margin-top:12px; border-bottom:none; background:${ACCENT}; color:#0d1a17; font-weight:700; text-align:center; border-radius:999px; padding:14px 20px; }
+    .mobile-nav-close { position:absolute; top:24px; right:24px; width:36px; height:36px; border:none; background:transparent; font-size:28px; line-height:1; cursor:pointer; color:#f0ece4; }
   }
 </style>
 <script src="/analytics.js" async></script>
@@ -227,33 +261,33 @@ function articleHtml(article, all) {
 <div style="min-height:100vh;">
   ${headerHtml()}
 
-  <main style="max-width:760px;margin:0 auto;padding:12px 24px 80px;">
-    <div style="font-size:12px;color:oklch(50% 0.01 60);margin-bottom:20px;">
-      <a href="../blog.html" style="color:#5aa59c;text-decoration:none;">BLOG</a>
+  <main class="a-main">
+    <div class="a-crumb">
+      <a href="../blog.html">BLOG</a>
       <span> / </span>
       <span>${esc(article.category)}</span>
     </div>
 
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-      <span style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px;background:${c.tagBg};color:${c.tagText};">${esc(article.category)}</span>
-      <span style="font-size:12px;color:oklch(55% 0.01 60);">${esc(article.date)}</span>
+    <div class="a-meta">
+      <span class="a-tag">${esc(article.category)}</span>
+      <span class="a-date">${esc(article.date)}</span>
     </div>
-    <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-size:28px;font-weight:900;line-height:1.5;margin:0 0 24px;">${esc(title)}</h1>
+    <h1 class="a-title">${esc(title)}</h1>
 
     ${heroHtml}
 
-    <div style="font-size:15px;line-height:2;margin-top:32px;">
+    <div class="a-body">
       ${renderBody(article.body)}
     </div>
 
-    <a href="../trial.html" style="display:block;text-align:center;background:#5aa59c;color:#fff;font-weight:700;padding:18px;border-radius:8px;text-decoration:none;margin:40px 0;font-family:'Zen Maru Gothic',sans-serif;">無料体験に申し込む</a>
+    <a class="a-cta" href="../trial.html">無料体験に申し込む</a>
 
-    <div style="display:flex;gap:20px;align-items:flex-start;background:#fff;border:1px solid oklch(90% 0.01 60);border-radius:8px;padding:24px;margin-bottom:40px;">
-      <img src="../images/4bb402d4b4412615b6284129a518263d.png" alt="トレーナー写真" style="width:76px;height:76px;flex-shrink:0;object-fit:cover;border-radius:50%;" onerror="this.style.visibility='hidden'">
+    <div class="a-author">
+      <img src="../images/4bb402d4b4412615b6284129a518263d.png" alt="トレーナー写真" onerror="this.style.visibility='hidden'">
       <div>
-        <div style="font-size:11px;color:oklch(55% 0.01 60);margin-bottom:4px;">この記事を書いた人</div>
-        <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px;">斉藤 弘樹<span style="font-size:11px;font-weight:400;margin-left:6px;color:oklch(50% 0.01 60);white-space:nowrap;">(NSCA認定パーソナルトレーナー)</span></div>
-        <p style="font-size:13px;color:oklch(45% 0.01 60);line-height:1.8;margin:0;">実は自分自身も継続が苦手で、何度も挫折した経験があります。だからこそ「続けることの難しさ」がよくわかります。無理のない習慣化を一緒に目指しましょう。</p>
+        <div class="lbl">この記事を書いた人</div>
+        <div class="nm">斉藤 弘樹<span>(NSCA認定パーソナルトレーナー)</span></div>
+        <p>実は自分自身も継続が苦手で、何度も挫折した経験があります。だからこそ「続けることの難しさ」がよくわかります。無理のない習慣化を一緒に目指しましょう。</p>
       </div>
     </div>
 
