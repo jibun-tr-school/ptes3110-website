@@ -431,4 +431,28 @@ export const articles = [
       { isList: true, items: ["Morton RW, Murphy KT, McKellar SR, Schoenfeld BJ, Henselmans M, Helms ER, Aragon AA, Devries MC, Banfield L, Krieger JW, Phillips SM. (2018) \"A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults.\" British Journal of Sports Medicine, 52(6), 376-384.", "Schoenfeld BJ, Aragon AA. (2018) \"How much protein can the body use in a single meal for muscle-building? Implications for daily protein distribution.\" Journal of the International Society of Sports Nutrition, 15:10."] }
     ],
   },
+  {
+    id: 'big-muscle-first', category: 'トレーニング', date: '2026.11.02',
+    title: '筋トレの種目は何から始める？「大きな筋肉」を優先する理由を研究で確認してみた',
+    excerpt: '「お尻だけ」「腹筋だけ」「二の腕だけ」など、気になる部位の種目から始めていませんか？今回は、初心者が優先したい種目の選び方を、研究データで確認してみました。',
+    image: 'images/blog/big-muscle-first.jpg',
+    body: [
+      { isH2: true, text: '「気になる部位」から鍛えていませんか？' },
+      { isP: true, text: '「お尻だけ」「お腹だけ」「二の腕だけ」。気になる部位があると、その部位の種目ばかり選びたくなります。E.Sでは初心者の方に、まず胸・背中・お尻・太もも・太ももの裏という、大きな筋肉5つを動かす種目から始めることをおすすめしています。この考え方に根拠があるのか、研究で確認してみました。' },
+      { isH2: true, text: '大きな筋肉の種目だけでも、成果は変わらないとされている' },
+      { isP: true, text: 'スクワットやラットプルダウンのように複数の関節を動かす種目と、アームカールのように1つの関節だけを動かす部位別の種目を比べた、23件の研究のレビュー(Gentil et al., Sports Medicine)があります。主に使われる筋肉の働き方に差はなく、上半身の長期的な筋肥大や筋力にも差は見られませんでした。部位別の種目を足しても、上乗せの効果はなかったと報告されています。ただし、腰まわりの筋肉(脊柱起立筋)は、部位別の種目が有利そうだとされています。' },
+      { isP: true, text: '大事なのは、「大きな筋肉の種目のほうが筋肉が育つ」わけではなく、「少ない種目数でも、同じような成果を狙える」という点です。著者らは、時間が限られる人にとって、複数の関節を使う種目を中心にするのは効率的な選択肢になりうると述べています。' },
+      { isH2: true, text: '腹筋は後回しでもいい？' },
+      { isP: true, text: '2024年に発表された研究(Sberse et al., 2024)では、16人を対象に、スクワットと体幹の種目で筋肉の働きを筋電図で比べています。背骨まわりの筋肉(腸肋筋・多裂筋)と内腹斜筋は、スクワットでも体幹の種目と同じくらい働きました。一方で、腹直筋(いわゆる腹筋)と外腹斜筋は、体幹を曲げる種目のほうがよく働いたそうです。腹筋は優先順位を下げてもよさそうですが、「いらない」わけではなく、余裕が出てきたら足していくくらいがちょうどよさそうです。' },
+      { isH2: true, text: 'BIG3にこだわらなくて大丈夫' },
+      { isP: true, text: 'スクワット・ベンチプレス・デッドリフトは効率のよい種目ですが、初心者にはフォームが難しく、ケガや「もう嫌だ」につながると続きません。まずはマシンや自重で、「これなら続けられそう」と思える種目を選んでください。これは研究ではなく、当ジムの考え方です。' },
+      { isH2: true, text: 'まとめ：まずは大きな筋肉から、気になる部位はあとから' },
+      { isP: true, text: '初心者の方は、胸・背中・お尻・太もも・太ももの裏の種目を中心に始め、余裕が出てきたら腹筋や気になる部位を足していく。これが、少ない種目でも続けやすい進め方です。なお、今回確認できたのは「大きな筋肉の種目だけでも、部位別の種目と同程度の成果が見込める」ことで、「この5つの部位がベスト」と調べた研究ではありません。' },
+      { isH2: true, text: '出典・参考文献' },
+      { isList: true, items: [
+        "Gentil P, Fisher J, Steele J. \"A Review of the Acute Effects and Long-Term Adaptations of Single- and Multi-Joint Exercises during Resistance Training.\" Sports Medicine, 47, 843-855.",
+        "Sberse RT, Zapparoli LB, Brodt GA. (2024) \"The squat exercise recruits core muscles as much as localized exercises.\" Fisioterapia em Movimento, 37."
+      ] }
+    ],
+  },
 ];
