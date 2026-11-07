@@ -455,4 +455,46 @@ export const articles = [
       ] }
     ],
   },
+  {
+    id: 'procrastination-excuses', category: '習慣', date: '2026.11.07',
+    title: '「今日は雨だから」「明日にしよう」トレーニングを先延ばしにする心理を、研究で確認してみた',
+    excerpt: '「今日は雨だから」「先に部屋の掃除をしてから」。トレーニングを、もっともらしい理由で先延ばしにしてしまうのは、意志が弱いからでしょうか。研究を確認してみました。',
+    image: 'images/blog/procrastination-excuses.jpg',
+    body: [
+      { isH2: true, text: '「今日は雨だから」「先に掃除してから」その理由、本当ですか？' },
+      { isP: true, text: 'トレーニングをしようと決めていたのに、' },
+      { isList: true, items: [
+        '「今日は雨だから、明日にしよう」（室内のジムに通っているのに）',
+        '「先に部屋の掃除をしてから」（いつもは気にしていなかった場所が、急に気になり出したり）'
+      ] },
+      { isP: true, text: 'と、もっともらしい理由で先延ばしにした経験はありませんか？' },
+      { isP: true, text: '意志が弱いからだと責めてしまう方もいますが、心理学ではこうした現象が研究されています。' },
+      { isH2: true, text: '「やるつもりだったのにできなかった」人は約半分' },
+      { isP: true, text: '2013年のメタ分析（Rhodes & de Bruijn）では、10件の研究・3,899人をまとめた結果、運動するつもりがあった人のうち、実際には行動できなかった人が48%でした（公的な運動ガイドライン相当の運動量を基準にした分析）。' },
+      { isP: true, text: '運動しようと思った人のほぼ半分が、実行までたどり着けていないということです。これはあなただけが抱えている問題ではなさそうです。' },
+      { isH2: true, text: '先延ばしは「今の気分を守る行動」という見方' },
+      { isP: true, text: 'Sirois氏とPychyl氏は、先延ばしを「長期的な目標よりも、目の前の気分を良くすることを優先してしまう自己調整の失敗」と説明しています（2013年の総説）。' },
+      { isP: true, text: '「面倒」「疲れた」「うまくできるか不安」といった嫌な気分を、やらないことで一時的に和らげている、という見方です。' },
+      { isH2: true, text: '「明日からがんばれる！」はあてになる？' },
+      { isP: true, text: '2015年のAcland氏とLevy氏の実験では、ふだんジムに通っていない120人が、将来のジム通いの回数を実際よりかなり多く見積もっていました。' },
+      { isP: true, text: '未来の自分は、今の自分より頑張れると期待してしまうようです。' },
+      { isH2: true, text: '三日坊主さん専門ジムとしての考え方' },
+      { isList: true, items: [
+        '運動をしないための、あたかも真っ当な理由が浮かんだら、「あ、これは例の回避行動だ」と気づく。まずは気づくことが大切です。',
+        '30分以内で終わる内容や、すぐに始められるメニューにしておく。',
+        '一旦、一人で続けるのは諦めて、パーソナルジムや人間との約束があるスタイルの運動に頼る。'
+      ] },
+      { isP: true, text: '（これらはE.Sのおすすめで、上の研究で効果が確かめられたものではありません）' },
+      { isH2: true, text: 'まとめ' },
+      { isP: true, text: '運動しようと思っても実行できなかった人は、約2人に1人です。' },
+      { isP: true, text: 'だから、できなくても自分を責める必要はありません。' },
+      { isP: true, text: 'その中で、自分ならどうすれば「続けられるか」を考えることが、運動を続けるための第一歩です。' },
+      { isH2: true, text: '出典・参考文献' },
+      { isList: true, items: [
+        "Rhodes RE, de Bruijn GJ (2013) \"How big is the physical activity intention-behaviour gap? A meta-analysis using the action control framework.\" British Journal of Health Psychology, 18(2), 296-309.",
+        "Sirois FM, Pychyl TA (2013) \"Procrastination and the priority of short-term mood regulation: Consequences for future self.\" Social and Personality Psychology Compass, 7(2), 115-127.",
+        "Acland D, Levy MR (2015) \"Naiveté, Projection Bias, and Habit Formation in Gym Attendance.\" Management Science, 61(1), 146-160."
+      ] }
+    ],
+  },
 ];
