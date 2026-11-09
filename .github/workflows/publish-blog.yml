@@ -1,0 +1,45 @@
+name: Publish approved blog posts
+
+# 1時間ごとに、スプレッドシートの「公開OK」の記事を確認して公開する。
+# 手動でも実行できる（GitHubの Actions 画面 → Run workflow）。
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Add approved posts from the sheet
+        run: node scripts/publish-from-sheet.mjs "https://docs.google.com/spreadsheets/d/1lgkCKr8atBpGsVj_sPNlT4mxU6X3J6QJbS-7VVvNOD8/export?format=csv&gid=0"
+
+      - name: Rebuild blog pages and sitemap
+        run: |
+          node --check articles-data.js
+          node scripts/generate-blog-pages.mjs
+
+      - name: Commit and push if anything changed
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "blog-publisher"
+            git config user.email "blog-publisher@users.noreply.github.com"
+            git add -A
+            git commit -m "ブログ記事を自動公開（スプレッドシートの公開OK）"
+            git push
+          else
+            echo "nothing to publish"
+          fi
