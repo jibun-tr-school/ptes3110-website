@@ -793,4 +793,91 @@ export const articles = [
       }
     ]
   },
+  {
+    "id": "weekly-once-training",
+    "category": "トレーニング",
+    "date": "2026.11.13",
+    "title": "「週1回じゃ意味がない」は本当？筋トレの頻度を、ガイドラインと研究で確認してみた",
+    "excerpt": "週1回しか通えないと、効果はないのでしょうか。WHOのガイドラインと、筋トレの頻度を調べた研究で確認できた範囲と、続けやすい考え方をまとめました。",
+    "image": null,
+    "body": [
+      {
+        "isH2": true,
+        "text": "「週1回じゃ意味がない」と思っていませんか？"
+      },
+      {
+        "isP": true,
+        "text": "「週に1回しか行けないなら、やっても効果がないのでは…」。体験や入会の前に、こうご相談いただくことがよくあります。E.Sには週1回のコースで1年以上続けている方もいますが、これは当ジムの経験です。研究ではどう言われているのか、確認できた範囲でまとめました。"
+      },
+      {
+        "isH2": true,
+        "text": "世界保健機関（WHO）のガイドラインは「週2日以上」"
+      },
+      {
+        "isP": true,
+        "text": "WHOの2020年のガイドライン（Bull et al.）では、成人は中程度以上の強度の筋力強化の運動を、すべての主要な筋肉を使う形で、週に2日以上行うことが推奨されています。"
+      },
+      {
+        "isP": true,
+        "text": "つまり、公的な目安は「週2日以上」です。ただしこれは健康のための目安で、「週1回では効果がない」という意味ではありません。"
+      },
+      {
+        "isH2": true,
+        "text": "筋肉を大きくする研究：週2回のほうが有利、ただし条件つき"
+      },
+      {
+        "isP": true,
+        "text": "筋トレの頻度と筋肥大を調べた2016年のメタ分析（Schoenfeld, Ogborn, Krieger）では、同じ筋肉を週2回以上鍛えたほうが、週1回より筋肥大が大きい傾向が報告されています。"
+      },
+      {
+        "isP": true,
+        "text": "ただし、頻度を増やすと週全体のトレーニング量（セット数など）も増えてしまっている研究が含まれていて、「回数が多いから」なのか「量が多いから」なのか、切り分けにくい点があります。"
+      },
+      {
+        "isP": true,
+        "text": "その後のレビュー（Grgic, Schoenfeld, Latella, 2019）では、週あたりの総量をそろえた場合、週1回でも週2〜3回と同程度の筋肥大が見られた研究が多いと報告されています。ただし、この結論の解釈には異論もあります。"
+      },
+      {
+        "isH2": true,
+        "text": "まとめると、確認できたこと・できなかったこと"
+      },
+      {
+        "isList": true,
+        "items": [
+          "公的な目安（WHO）は、筋トレを週2日以上",
+          "筋肥大の研究では、週2回以上のほうが有利という報告がある",
+          "ただし、総量をそろえると週1回でも同程度という報告もあり、結論は決着していない",
+          "「週1回で十分」とも「週1回では無意味」とも、今回の確認だけでは言い切れない"
+        ]
+      },
+      {
+        "isH2": true,
+        "text": "三日坊主さん専門ジムとしての考え方"
+      },
+      {
+        "isP": true,
+        "text": "ここからは研究ではなく、E.Sの考え方です。"
+      },
+      {
+        "isList": true,
+        "items": [
+          "「完璧な週2〜3回」を目指して挫折するより、「週1回を続ける」ほうがずっと価値がある",
+          "週1回のトレーニングを土台にして、余裕のある週に5〜10分の自宅トレを足す。これなら続けやすい",
+          "余裕が出てきたら、「週2回」を目標にしてもよい。まずは続けることが先"
+        ]
+      },
+      {
+        "isH2": true,
+        "text": "出典・参考文献"
+      },
+      {
+        "isList": true,
+        "items": [
+          "Bull FC, et al. (2020) \"World Health Organization 2020 guidelines on physical activity and sedentary behaviour.\" British Journal of Sports Medicine, 54, 1451-1462.",
+          "Schoenfeld BJ, Ogborn D, Krieger JW. (2016) \"Effects of Resistance Training Frequency on Measures of Muscle Hypertrophy: A Systematic Review and Meta-Analysis.\" Sports Medicine.",
+          "Grgic J, Schoenfeld BJ, Latella C. (2019) \"Resistance training frequency and skeletal muscle hypertrophy: A review of available evidence.\""
+        ]
+      }
+    ]
+  },
 ];
