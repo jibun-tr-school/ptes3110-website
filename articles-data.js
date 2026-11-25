@@ -988,7 +988,7 @@ export const articles = [
     "date": "2026.11.23",
     "title": "筋トレの種目は「BIG3から」じゃなくてもOK？「楽しい」と感じる種目を選んでいい理由を、研究で確認してみた",
     "excerpt": "BIG3は優れた種目ですが、フォームが難しくて挫折してしまう三日坊主さんも多いです。運動の楽しさと続けやすさの研究で確認できた範囲と、種目の選び方をまとめました。",
-    "image": "images/21592_color.png",
+    "image": "images/blog/exercise-selection-enjoyment.jpg",
     "body": [
       {
         "isP": true,
